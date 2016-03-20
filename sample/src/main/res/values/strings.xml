@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SpinKit</string>
+    <string-array name="names">
+        <item>RotatingPlane</item>
+        <item>DoubleBounce</item>
+        <item>Wave</item>
+        <item>WanderingCubes</item>
+        <item>Pulse</item>
+        <item>ChasingDots</item>
+        <item>ThreeBounce</item>
+        <item>Circle</item>
+        <item>CubeGrid</item>
+        <item>FadingCircle</item>
+        <item>FoldingCube</item>
+    </string-array>
+</resources>

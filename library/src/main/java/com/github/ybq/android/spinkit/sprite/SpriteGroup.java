@@ -1,0 +1,115 @@
+package com.github.ybq.android.spinkit.sprite;
+
+import android.animation.ValueAnimator;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+
+import com.github.ybq.android.spinkit.animation.AnimationUtils;
+
+/**
+ * Created by ybq.
+ */
+public abstract class SpriteGroup extends Sprite {
+
+    private Sprite[] sprites;
+
+    private int color;
+
+    public SpriteGroup() {
+        sprites = onCreateChild();
+        initCallBack();
+        onChildCreated(sprites);
+    }
+
+    private void initCallBack() {
+        if (sprites != null) {
+            for (Sprite sprite : sprites) {
+                sprite.setCallback(this);
+            }
+        }
+    }
+
+    public void onChildCreated(Sprite... sprites) {
+
+    }
+
+    public int getChildCount() {
+        return sprites == null ? 0 : sprites.length;
+    }
+
+    public Sprite getChildAt(int index) {
+        return sprites == null ? null : sprites[index];
+    }
+
+
+    @Override
+    public void setColor(int color) {
+        this.color = color;
+        for (int i = 0; i < getChildCount(); i++) {
+            getChildAt(i).setColor(color);
+        }
+    }
+
+    @Override
+    public int getColor() {
+        return color;
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        drawChild(canvas);
+    }
+
+    public void drawChild(Canvas canvas) {
+        if (sprites != null) {
+            for (Sprite sprite : sprites) {
+                int count = canvas.save();
+                sprite.draw(canvas);
+                canvas.restoreToCount(count);
+            }
+        }
+    }
+
+
+    @Override
+    protected void drawSelf(Canvas canvas) {
+    }
+
+    @Override
+    protected void onBoundsChange(Rect bounds) {
+        super.onBoundsChange(bounds);
+        for (Sprite sprite : sprites) {
+            sprite.setBounds(bounds);
+        }
+    }
+
+
+    @Override
+    public void start() {
+        super.start();
+        AnimationUtils.start(sprites);
+        AnimationUtils.start(getAnimation());
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+        AnimationUtils.stop(sprites);
+        AnimationUtils.stop(getAnimation());
+    }
+
+
+    @Override
+    public boolean isRunning() {
+        return AnimationUtils.isRunning(sprites) ||
+                AnimationUtils.isRunning(getAnimation());
+    }
+
+    public abstract Sprite[] onCreateChild();
+
+    @Override
+    public ValueAnimator getAnimation() {
+        return null;
+    }
+}
