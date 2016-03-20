@@ -26,7 +26,7 @@ allprojects {
 
 ``` gradle
 dependencies {
-   compile 'cn.yangbingqiang.android:spinkit:1.0.0'
+    compile 'com.github.ybq:AndroidSpinKit:v1.0.0'
  }
 ```
 
