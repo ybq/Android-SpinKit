@@ -41,10 +41,6 @@ public class ChasingDots extends SpriteGroup {
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
-//        int w = bounds.width();
-//        int h = bounds.height();
-//        int min = Math.min(w, h);
-
         bounds = clipSquare(bounds);
         int drawW = (int) (bounds.width() * 0.6f);
         getChildAt(0).setDrawBounds(
