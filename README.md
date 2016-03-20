@@ -2,22 +2,33 @@
 # AndroidSpinKit
 
  
-##### Android 加载动画(对照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
+##### Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
 ## 效果 
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="426px"/>
  
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen2.gif" width="200px" height="200px"/>
 
-<!--## Gradle 依赖
+## Gradle 依赖
 
+  1.在项目根目录的build.gradle添加
 
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+
+  2.添加依赖
 
 ``` gradle
 dependencies {
    compile 'cn.yangbingqiang.android:spinkit:1.0.0'
  }
-``` -->
+```
 
 
 ## 使用
