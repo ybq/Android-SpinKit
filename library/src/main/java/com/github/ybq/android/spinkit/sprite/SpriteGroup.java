@@ -89,21 +89,18 @@ public abstract class SpriteGroup extends Sprite {
     public void start() {
         super.start();
         AnimationUtils.start(sprites);
-        AnimationUtils.start(getAnimation());
     }
 
     @Override
     public void stop() {
         super.stop();
         AnimationUtils.stop(sprites);
-        AnimationUtils.stop(getAnimation());
     }
 
 
     @Override
     public boolean isRunning() {
-        return AnimationUtils.isRunning(sprites) ||
-                AnimationUtils.isRunning(getAnimation());
+        return AnimationUtils.isRunning(sprites) ||super.isRunning();
     }
 
     public abstract Sprite[] onCreateChild();
