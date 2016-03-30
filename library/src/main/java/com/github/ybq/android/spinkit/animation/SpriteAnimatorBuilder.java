@@ -13,7 +13,6 @@ import com.github.ybq.android.spinkit.sprite.Sprite;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by ybq.
@@ -90,7 +89,6 @@ public class SpriteAnimatorBuilder {
     }
 
     public PropertyValuesHolder holder(float[] fractions, Property property, float[] values) {
-        ensurePair(fractions.length, values.length);
         Keyframe[] keyframes = new Keyframe[fractions.length];
         for (int i = 0; i < values.length; i++) {
             keyframes[i] = Keyframe.ofFloat(fractions[i], values[i]);
@@ -104,7 +102,6 @@ public class SpriteAnimatorBuilder {
     }
 
     public PropertyValuesHolder holder(float[] fractions, Property property, int[] values) {
-        ensurePair(fractions.length, values.length);
         Keyframe[] keyframes = new Keyframe[fractions.length];
         for (int i = 0; i < values.length; i++) {
             keyframes[i] = Keyframe.ofInt(fractions[i], values[i]);
@@ -117,16 +114,6 @@ public class SpriteAnimatorBuilder {
         return valuesHolder;
     }
 
-    private void ensurePair(int fractionsLength, int valuesLength) {
-        if (fractionsLength != valuesLength) {
-            throw new IllegalStateException(String.format(
-                    Locale.getDefault(),
-                    "The fractions.length must equal values.length, " +
-                            "fraction.length[%d], values.length[%d]",
-                    fractionsLength,
-                    valuesLength));
-        }
-    }
 
     public SpriteAnimatorBuilder interpolator(Interpolator interpolator) {
         this.interpolator = interpolator;
