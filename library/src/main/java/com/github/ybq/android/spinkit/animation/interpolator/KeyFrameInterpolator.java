@@ -33,7 +33,7 @@ public class KeyFrameInterpolator implements Interpolator {
                 float start = fractions[i];
                 float end = fractions[i + 1];
                 float duration = end - start;
-                if (input > start && input < end) {
+                if (input >= start && input <= end) {
                     input = (input - start) / duration;
                     return start + (interpolator.getInterpolation(input)
                             * duration);
