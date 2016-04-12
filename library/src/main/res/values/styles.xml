@@ -9,7 +9,6 @@
         <item name="android:maxHeight">48dip</item>
     </style>
 
-
     <style name="SpinKitView.ChasingDots">
         <item name="SpinKit_Style">ChasingDots</item>
     </style>
@@ -17,7 +16,6 @@
     <style name="SpinKitView.Circle">
         <item name="SpinKit_Style">Circle</item>
     </style>
-
 
     <style name="SpinKitView.CubeGrid">
         <item name="SpinKit_Style">CubeGrid</item>
@@ -40,21 +38,20 @@
     </style>
 
     <style name="SpinKitView.RotatingPlane">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">RotatingPlane</item>
     </style>
 
     <style name="SpinKitView.ThreeBounce">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">ThreeBounce</item>
     </style>
 
     <style name="SpinKitView.WanderingCubes">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">WanderingCubes</item>
     </style>
 
     <style name="SpinKitView.Wave">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">Wave</item>
     </style>
-
 
     <style name="SpinKitView.Large">
         <item name="android:minWidth">76dip</item>
@@ -63,7 +60,6 @@
         <item name="android:maxHeight">76dip</item>
     </style>
 
-
     <style name="SpinKitView.Large.ChasingDots">
         <item name="SpinKit_Style">ChasingDots</item>
     </style>
@@ -71,7 +67,6 @@
     <style name="SpinKitView.Large.Circle">
         <item name="SpinKit_Style">Circle</item>
     </style>
-
 
     <style name="SpinKitView.Large.CubeGrid">
         <item name="SpinKit_Style">CubeGrid</item>
@@ -94,21 +89,20 @@
     </style>
 
     <style name="SpinKitView.Large.RotatingPlane">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">RotatingPlane</item>
     </style>
 
     <style name="SpinKitView.Large.ThreeBounce">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">ThreeBounce</item>
     </style>
 
     <style name="SpinKitView.Large.WanderingCubes">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">WanderingCubes</item>
     </style>
 
     <style name="SpinKitView.Large.Wave">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">Wave</item>
     </style>
-
 
     <style name="SpinKitView.Small">
         <item name="android:minWidth">16dip</item>
@@ -117,7 +111,6 @@
         <item name="android:maxHeight">16dip</item>
     </style>
 
-
     <style name="SpinKitView.Small.ChasingDots">
         <item name="SpinKit_Style">ChasingDots</item>
     </style>
@@ -125,7 +118,6 @@
     <style name="SpinKitView.Small.Circle">
         <item name="SpinKit_Style">Circle</item>
     </style>
-
 
     <style name="SpinKitView.Small.CubeGrid">
         <item name="SpinKit_Style">CubeGrid</item>
@@ -148,19 +140,19 @@
     </style>
 
     <style name="SpinKitView.Small.RotatingPlane">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">RotatingPlane</item>
     </style>
 
     <style name="SpinKitView.Small.ThreeBounce">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">ThreeBounce</item>
     </style>
 
     <style name="SpinKitView.Small.WanderingCubes">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">WanderingCubes</item>
     </style>
 
     <style name="SpinKitView.Small.Wave">
-        <item name="SpinKit_Style">Circle</item>
+        <item name="SpinKit_Style">Wave</item>
     </style>
 
 </resources>
