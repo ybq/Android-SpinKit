@@ -48,6 +48,11 @@ public class ThreeBounce extends SpriteGroup {
     }
 
     class Bounce extends CircleSprite {
+
+        public Bounce() {
+            setScale(0f);
+        }
+
         @Override
         public ValueAnimator getAnimation() {
             float fractions[] = new float[]{0f, 0.4f, 0.8f, 1f};
