@@ -100,9 +100,8 @@ public class SpinKitView extends ProgressBar {
 
     @Override
     public void setIndeterminateDrawable(Drawable d) {
-        super.setIndeterminateDrawable(d);
         if (!(d instanceof Sprite)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("this d must be instanceof Sprite");
         }
         setIndeterminateDrawable((Sprite) d);
     }
@@ -111,6 +110,7 @@ public class SpinKitView extends ProgressBar {
         super.setIndeterminateDrawable(d);
         mSprite = d;
         mSprite.setColor(mColor);
+        onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
     }
 
     @Override
