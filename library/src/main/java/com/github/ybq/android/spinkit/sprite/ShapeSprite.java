@@ -13,7 +13,7 @@ public abstract class ShapeSprite extends Sprite {
 
     private Paint mPaint;
     private int mUseColor;
-    private int mBaseColor;
+    private int mBaseColor = Color.WHITE;
 
     public ShapeSprite() {
         mPaint = new Paint();
