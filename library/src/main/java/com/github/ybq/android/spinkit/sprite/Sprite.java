@@ -15,7 +15,6 @@ import com.github.ybq.android.spinkit.animation.AnimationUtils;
 import com.github.ybq.android.spinkit.animation.FloatProperty;
 import com.github.ybq.android.spinkit.animation.IntProperty;
 
-
 /**
  * Created by ybq.
  */
@@ -44,12 +43,10 @@ public abstract class Sprite extends Drawable implements
     private Camera mCamera;
     private Matrix mMatrix;
 
-
     public Sprite() {
         mCamera = new Camera();
         mMatrix = new Matrix();
     }
-
 
     public abstract int getColor();
 
@@ -175,8 +172,7 @@ public abstract class Sprite extends Drawable implements
 
     public Sprite setAnimationDelay(int animationDelay) {
         this.animationDelay = animationDelay;
-        return
-                this;
+        return this;
     }
 
     @Override
@@ -188,11 +184,12 @@ public abstract class Sprite extends Drawable implements
 
     @Override
     public void start() {
-        animator = obtainAnimation();
-        if (animator == null) {
+        if (AnimationUtils.isStarted(animator)) {
             return;
         }
-        if (animator.isStarted()) {
+
+        animator = obtainAnimation();
+        if (animator == null) {
             return;
         }
 
@@ -215,13 +212,11 @@ public abstract class Sprite extends Drawable implements
 
     @Override
     public void stop() {
-        if (animator != null) {
+        if (AnimationUtils.isStarted(animator)) {
             animator.end();
             reset();
-            onAnimationUpdate(animator);
         }
     }
-
 
     protected abstract void drawSelf(Canvas canvas);
 
@@ -280,14 +275,12 @@ public abstract class Sprite extends Drawable implements
         }
     }
 
-
     public Rect getDrawBounds() {
         return drawBounds;
     }
 
     @Override
     public void draw(Canvas canvas) {
-
         int tx = getTranslateX();
         tx = tx == 0 ? (int) (getBounds().width() * getTranslateXPercentage()) : tx;
         int ty = getTranslateY();
@@ -373,6 +366,7 @@ public abstract class Sprite extends Drawable implements
             return object.getTranslateX();
         }
     };
+
     @SuppressWarnings("unused")
     public static final Property<Sprite, Integer> TRANSLATE_Y = new IntProperty<Sprite>("translateY") {
         @Override
@@ -386,7 +380,6 @@ public abstract class Sprite extends Drawable implements
         }
     };
 
-
     public static final Property<Sprite, Float> TRANSLATE_X_PERCENTAGE = new FloatProperty<Sprite>("translateXPercentage") {
         @Override
         public void setValue(Sprite object, float value) {
@@ -399,7 +392,6 @@ public abstract class Sprite extends Drawable implements
         }
     };
 
-
     public static final Property<Sprite, Float> TRANSLATE_Y_PERCENTAGE = new FloatProperty<Sprite>("translateYPercentage") {
         @Override
         public void setValue(Sprite object, float value) {
@@ -411,6 +403,7 @@ public abstract class Sprite extends Drawable implements
             return object.getTranslateYPercentage();
         }
     };
+
     @SuppressWarnings("unused")
     public static final Property<Sprite, Float> SCALE_X = new FloatProperty<Sprite>("scaleX") {
         @Override
@@ -423,6 +416,7 @@ public abstract class Sprite extends Drawable implements
             return object.getScaleX();
         }
     };
+
     public static final Property<Sprite, Float> SCALE_Y = new FloatProperty<Sprite>("scaleY") {
         @Override
         public void setValue(Sprite object, float value) {
@@ -446,6 +440,7 @@ public abstract class Sprite extends Drawable implements
             return object.getScale();
         }
     };
+
     public static final Property<Sprite, Integer> ALPHA = new IntProperty<Sprite>("alpha") {
         @Override
         public void setValue(Sprite object, int value) {
@@ -457,6 +452,5 @@ public abstract class Sprite extends Drawable implements
             return object.getAlpha();
         }
     };
-
 
 }
