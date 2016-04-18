@@ -1,5 +1,5 @@
 
-# AndroidSpinKit
+# Android-SpinKit
 
  
 ##### Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
