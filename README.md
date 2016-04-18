@@ -1,5 +1,5 @@
 
-# AndroidSpinKit
+# Android-SpinKit
 ##### Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
 ## Preview 
 
