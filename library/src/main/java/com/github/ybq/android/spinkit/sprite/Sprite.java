@@ -200,11 +200,9 @@ public abstract class Sprite extends Drawable implements
     public ValueAnimator obtainAnimation() {
         if (animator == null) {
             animator = getAnimation();
-            if (animator != null) {
-                animator.addUpdateListener(this);
-            }
         }
         if (animator != null) {
+            animator.addUpdateListener(this);
             animator.setStartDelay(animationDelay);
         }
         return animator;
@@ -213,7 +211,8 @@ public abstract class Sprite extends Drawable implements
     @Override
     public void stop() {
         if (AnimationUtils.isStarted(animator)) {
-            animator.cancel();
+            animator.removeAllUpdateListeners();
+            animator.end();
             reset();
         }
     }
@@ -285,8 +284,7 @@ public abstract class Sprite extends Drawable implements
         tx = tx == 0 ? (int) (getBounds().width() * getTranslateXPercentage()) : tx;
         int ty = getTranslateY();
         ty = ty == 0 ? (int) (getBounds().height() * getTranslateYPercentage()) : ty;
-        canvas.translate(tx,
-                ty);
+        canvas.translate(tx, ty);
         canvas.scale(getScaleX(), getScaleY(), getPivotX(), getPivotY());
         canvas.rotate(getRotate(), getPivotX(), getPivotY());
 
