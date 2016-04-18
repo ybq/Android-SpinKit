@@ -107,10 +107,14 @@ public class SpinKitView extends ProgressBar {
     }
 
     public void setIndeterminateDrawable(Sprite d) {
+        if (mSprite != null) {
+            mSprite.stop();
+        }
         super.setIndeterminateDrawable(d);
         mSprite = d;
         mSprite.setColor(mColor);
         onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
+        d.start();
     }
 
     @Override
@@ -118,8 +122,4 @@ public class SpinKitView extends ProgressBar {
         return mSprite;
     }
 
-    @Override
-    public void setIndeterminateDrawableTiled(Drawable d) {
-        super.setIndeterminateDrawableTiled(d);
-    }
 }

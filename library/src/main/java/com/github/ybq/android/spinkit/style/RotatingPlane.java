@@ -1,8 +1,6 @@
 package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.Rect;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
@@ -26,10 +24,5 @@ public class RotatingPlane extends RectSprite {
                 duration(1200).
                 easeInOut(fractions)
                 .build();
-    }
-
-    @Override
-    public void drawShape(Canvas canvas, Paint paint) {
-        super.drawShape(canvas, paint);
     }
 }
