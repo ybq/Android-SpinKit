@@ -213,7 +213,7 @@ public abstract class Sprite extends Drawable implements
     @Override
     public void stop() {
         if (AnimationUtils.isStarted(animator)) {
-            animator.end();
+            animator.cancel();
             reset();
         }
     }
