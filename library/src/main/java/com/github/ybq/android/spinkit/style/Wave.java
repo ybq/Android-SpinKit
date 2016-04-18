@@ -13,7 +13,6 @@ import com.github.ybq.android.spinkit.sprite.SpriteGroup;
  */
 public class Wave extends SpriteGroup {
 
-
     @Override
     public Sprite[] onCreateChild() {
         WaveItem[] waveItems = new WaveItem[5];
@@ -39,6 +38,11 @@ public class Wave extends SpriteGroup {
     }
 
     class WaveItem extends RectSprite {
+
+        public WaveItem() {
+            setScaleY(0.4f);
+        }
+
         @Override
         public ValueAnimator getAnimation() {
             float fractions[] = new float[]{0f, 0.2f, 0.4f, 1f};

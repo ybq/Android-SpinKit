@@ -24,6 +24,10 @@ public class FadingCircle extends CircleSpriteGroup {
 
     class Dot extends CircleSprite {
 
+        public Dot() {
+            setAlpha(0);
+        }
+
         @Override
         public ValueAnimator getAnimation() {
             float fractions[] = new float[]{0f, 0.4f, 1f};

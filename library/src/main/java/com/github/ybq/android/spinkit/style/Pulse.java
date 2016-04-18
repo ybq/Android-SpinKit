@@ -10,6 +10,10 @@ import com.github.ybq.android.spinkit.sprite.CircleSprite;
  */
 public class Pulse extends CircleSprite {
 
+    public Pulse() {
+        setScale(0f);
+    }
+
     @Override
     public ValueAnimator getAnimation() {
         float fractions[] = new float[]{0f, 1f};

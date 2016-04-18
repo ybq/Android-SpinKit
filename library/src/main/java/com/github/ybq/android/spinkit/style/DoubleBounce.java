@@ -12,7 +12,6 @@ import com.github.ybq.android.spinkit.sprite.SpriteGroup;
  */
 public class DoubleBounce extends SpriteGroup {
 
-
     @Override
     public Sprite[] onCreateChild() {
         return new Sprite[]{
@@ -26,11 +25,11 @@ public class DoubleBounce extends SpriteGroup {
         sprites[1].setAnimationDelay(-1000);
     }
 
-
     class Bounce extends CircleSprite {
 
         public Bounce() {
             setAlpha(153);
+            setScale(0f);
         }
 
         @Override

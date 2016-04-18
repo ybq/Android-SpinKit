@@ -13,7 +13,6 @@ import com.github.ybq.android.spinkit.sprite.SpriteGroup;
  */
 public class ThreeBounce extends SpriteGroup {
 
-
     @Override
     public Sprite[] onCreateChild() {
         return new Sprite[]{
