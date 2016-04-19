@@ -3,6 +3,7 @@ package com.github.ybq.android.loading;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,10 +29,6 @@ import com.github.ybq.android.spinkit.style.Wave;
  */
 public class Page1Fragment extends Fragment implements Colors {
 
-
-    private RecyclerView recyclerView;
-
-
     public static Page1Fragment newInstance() {
         return new Page1Fragment();
     }
@@ -45,7 +42,8 @@ public class Page1Fragment extends Fragment implements Colors {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = (RecyclerView) view.findViewById(R.id.list);
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setBackgroundColor(colors[4]);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
         layoutManager.setOrientation(GridLayoutManager.VERTICAL);
@@ -65,13 +63,12 @@ public class Page1Fragment extends Fragment implements Colors {
 
             @Override
             public int getItemCount() {
-                return 11;
+                return 33;
             }
         });
     }
 
     class Holder extends RecyclerView.ViewHolder {
-
 
         SpinKitView spinKitView;
 
@@ -88,6 +85,7 @@ public class Page1Fragment extends Fragment implements Colors {
                     DetailActivity.start(v.getContext(), position);
                 }
             });
+
             Sprite drawable = null;
             switch (position) {
                 case 0:
@@ -107,6 +105,7 @@ public class Page1Fragment extends Fragment implements Colors {
                     break;
                 case 5:
                     drawable = new ChasingDots();
+                    drawable.setColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
                     break;
                 case 6:
                     drawable = new ThreeBounce();

@@ -52,9 +52,5 @@ public class Wave extends SpriteGroup {
                     .build();
         }
 
-        @Override
-        public void onAnimationUpdate(ValueAnimator animation) {
-            invalidateSelf();
-        }
     }
 }
