@@ -10,15 +10,15 @@ import android.graphics.Paint;
  */
 public abstract class ShapeSprite extends Sprite {
 
-
     private Paint mPaint;
     private int mUseColor;
-    private int mBaseColor = Color.WHITE;
+    private int mBaseColor;
 
     public ShapeSprite() {
+        setColor(Color.WHITE);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(mUseColor);
     }
 
     @Override
@@ -36,7 +36,6 @@ public abstract class ShapeSprite extends Sprite {
     public int getUseColor() {
         return mUseColor;
     }
-
 
     @Override
     public void setAlpha(int alpha) {

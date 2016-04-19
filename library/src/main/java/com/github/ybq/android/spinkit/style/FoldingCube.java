@@ -78,6 +78,11 @@ public class FoldingCube extends SpriteGroup {
 
     class Cube extends RectSprite {
 
+        public Cube() {
+            setAlpha(0);
+            setRotateX(-180);
+        }
+
         @Override
         public ValueAnimator getAnimation() {
             float fractions[] = new float[]{0f, 0.1f, 0.25f, 0.75f, 0.9f, 1f};
@@ -89,6 +94,5 @@ public class FoldingCube extends SpriteGroup {
                     interpolator(new LinearInterpolator())
                     .build();
         }
-
     }
 }

@@ -57,8 +57,12 @@ public class ChasingDots extends SpriteGroup {
         );
     }
 
-
     class Dot extends CircleSprite {
+
+        public Dot() {
+            setScale(0f);
+        }
+
         @Override
         public ValueAnimator getAnimation() {
             float fractions[] = new float[]{0f, 0.5f, 1f};
@@ -68,7 +72,6 @@ public class ChasingDots extends SpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
-
     }
 
 }

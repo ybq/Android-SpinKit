@@ -41,7 +41,6 @@ public abstract class SpriteGroup extends Sprite {
         return sprites == null ? null : sprites[index];
     }
 
-
     @Override
     public void setColor(int color) {
         this.color = color;
@@ -71,7 +70,6 @@ public abstract class SpriteGroup extends Sprite {
         }
     }
 
-
     @Override
     protected void drawSelf(Canvas canvas) {
     }
@@ -84,7 +82,6 @@ public abstract class SpriteGroup extends Sprite {
         }
     }
 
-
     @Override
     public void start() {
         super.start();
@@ -96,7 +93,6 @@ public abstract class SpriteGroup extends Sprite {
         super.stop();
         AnimationUtils.stop(sprites);
     }
-
 
     @Override
     public boolean isRunning() {

@@ -1,6 +1,5 @@
 package com.github.ybq.android.loading;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +22,9 @@ import com.github.ybq.android.spinkit.style.Wave;
  */
 public class Page2Fragment extends Fragment implements Colors {
 
+    private Wave mWaveDrawable;
+    private Circle mCircleDrawable;
+    private ChasingDots mChasingDotsDrawable;
 
     public static Page2Fragment newInstance() {
         return new Page2Fragment();
@@ -31,9 +33,7 @@ public class Page2Fragment extends Fragment implements Colors {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        @SuppressLint("InflateParams")
-        View view = inflater.inflate(R.layout.fragment_page2, null);
-        return view;
+        return inflater.inflate(R.layout.fragment_page2, null);
     }
 
     @Override
@@ -43,40 +43,47 @@ public class Page2Fragment extends Fragment implements Colors {
         //ProgressBar
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress);
         DoubleBounce doubleBounce = new DoubleBounce();
-        doubleBounce.setBounds(0, 0,
-                100,
-                100);
+        doubleBounce.setBounds(0, 0, 100, 100);
         doubleBounce.setColor(colors[7]);
         progressBar.setIndeterminateDrawable(doubleBounce);
 
         //Button
         Button button = (Button) view.findViewById(R.id.button);
-        Wave wave = new Wave();
-        wave.setBounds(0, 0,
-                100,
-                100);
+        mWaveDrawable = new Wave();
+        mWaveDrawable.setBounds(0, 0, 100, 100);
         //noinspection deprecation
-        wave.setColor(getResources().getColor(R.color.colorAccent));
-        button.setCompoundDrawables(wave, null, null, null);
-        wave.start();
+        mWaveDrawable.setColor(getResources().getColor(R.color.colorAccent));
+        button.setCompoundDrawables(mWaveDrawable, null, null, null);
 
         //TextView
         TextView textView = (TextView) view.findViewById(R.id.text);
-        Circle circle = new Circle();
-        circle.setBounds(0, 0,
-                100,
-                100);
-        circle.setColor(Color.WHITE);
-        textView.setCompoundDrawables(null, null, circle, null);
+        mCircleDrawable = new Circle();
+        mCircleDrawable.setBounds(0, 0, 100, 100);
+        mCircleDrawable.setColor(Color.WHITE);
+        textView.setCompoundDrawables(null, null, mCircleDrawable, null);
         textView.setBackgroundColor(colors[2]);
-        circle.start();
 
         //ImageView
         ImageView imageView = (ImageView) view.findViewById(R.id.image);
-        ChasingDots chasingDots = new ChasingDots();
-        chasingDots.setColor(Color.WHITE);
-        imageView.setImageDrawable(chasingDots);
+        mChasingDotsDrawable = new ChasingDots();
+        mChasingDotsDrawable.setColor(Color.WHITE);
+        imageView.setImageDrawable(mChasingDotsDrawable);
         imageView.setBackgroundColor(colors[0]);
-        chasingDots.start();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mWaveDrawable.start();
+        mCircleDrawable.start();
+        mChasingDotsDrawable.start();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mWaveDrawable.stop();
+        mCircleDrawable.stop();
+        mChasingDotsDrawable.stop();
     }
 }

@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -26,7 +27,6 @@ public class SpinKitView extends ProgressBar {
 
     public SpinKitView(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.SpinKitViewStyle);
-
     }
 
     public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -38,8 +38,7 @@ public class SpinKitView extends ProgressBar {
         super(context, attrs, defStyleAttr, defStyleRes);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr,
                 defStyleRes);
-        mStyle =
-                Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
+        mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
         mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
         a.recycle();
         init();
@@ -60,19 +59,48 @@ public class SpinKitView extends ProgressBar {
     }
 
     public void setIndeterminateDrawable(Sprite d) {
-        if (mSprite != null) {
-            mSprite.stop();
-        }
         super.setIndeterminateDrawable(d);
         mSprite = d;
-        mSprite.setColor(mColor);
+        if (mSprite.getColor() == 0) {
+            mSprite.setColor(mColor);
+        }
         onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
-        d.start();
+        if (getVisibility() == VISIBLE) {
+            mSprite.start();
+        }
     }
 
     @Override
     public Sprite getIndeterminateDrawable() {
         return mSprite;
+    }
+
+    @Override
+    public void unscheduleDrawable(Drawable who) {
+        super.unscheduleDrawable(who);
+        if (who instanceof Sprite) {
+            ((Sprite) who).stop();
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (hasWindowFocus) {
+            if (mSprite != null && getVisibility() == VISIBLE) {
+                mSprite.start();
+            }
+        }
+    }
+
+    @Override
+    public void onScreenStateChanged(int screenState) {
+        super.onScreenStateChanged(screenState);
+        if (screenState == View.SCREEN_STATE_OFF) {
+            if (mSprite != null) {
+                mSprite.stop();
+            }
+        }
     }
 
 }

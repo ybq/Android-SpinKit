@@ -1,9 +1,9 @@
 package com.github.ybq.android.loading;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ChasingDots;
 import com.github.ybq.android.spinkit.style.Circle;
 import com.github.ybq.android.spinkit.style.CubeGrid;
@@ -55,12 +55,12 @@ public class DetailActivity extends AppCompatActivity implements Colors {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                @SuppressLint("InflateParams")
-                View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager,
-                        null);
-                final SpinKitView spinKitView = (SpinKitView) view.findViewById(R.id.spin_kit);
+                View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager, null);
+
+                SpinKitView spinKitView = (SpinKitView) view.findViewById(R.id.spin_kit);
                 TextView name = (TextView) view.findViewById(R.id.name);
                 name.setText(names[position]);
+
                 Sprite drawable = null;
                 switch (position) {
                     case 0:
@@ -80,6 +80,7 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                         break;
                     case 5:
                         drawable = new ChasingDots();
+                        drawable.setColor(ContextCompat.getColor(DetailActivity.this, R.color.colorAccent));
                         break;
                     case 6:
                         drawable = new ThreeBounce();
@@ -108,6 +109,7 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                 container.removeView((View) object);
             }
         });
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

@@ -22,7 +22,6 @@ public class AnimationUtils {
         }
     }
 
-
     public static void start(Sprite... sprites) {
         for (Sprite sprite : sprites) {
             sprite.start();
@@ -46,5 +45,9 @@ public class AnimationUtils {
 
     public static boolean isRunning(ValueAnimator animator) {
         return animator != null && animator.isRunning();
+    }
+
+    public static boolean isStarted(ValueAnimator animator) {
+        return animator != null && animator.isStarted();
     }
 }
