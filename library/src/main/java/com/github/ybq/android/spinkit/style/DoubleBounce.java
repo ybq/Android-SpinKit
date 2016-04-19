@@ -40,5 +40,12 @@ public class DoubleBounce extends SpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
+
+        @Override
+        public void reset() {
+            super.reset();
+            setAlpha(153);
+            setScale(0f);
+        }
     }
 }

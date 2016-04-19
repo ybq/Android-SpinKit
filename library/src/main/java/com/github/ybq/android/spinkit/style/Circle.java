@@ -37,5 +37,11 @@ public class Circle extends CircleSpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
+
+        @Override
+        public void reset() {
+            super.reset();
+            setScale(0f);
+        }
     }
 }

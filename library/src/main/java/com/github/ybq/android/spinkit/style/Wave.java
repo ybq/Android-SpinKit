@@ -52,5 +52,10 @@ public class Wave extends SpriteGroup {
                     .build();
         }
 
+        @Override
+        public void reset() {
+            super.reset();
+            setScaleY(0.4f);
+        }
     }
 }

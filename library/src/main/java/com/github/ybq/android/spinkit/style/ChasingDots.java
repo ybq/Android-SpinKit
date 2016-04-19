@@ -72,6 +72,12 @@ public class ChasingDots extends SpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
+
+        @Override
+        public void reset() {
+            super.reset();
+            setScale(0f);
+        }
     }
 
 }

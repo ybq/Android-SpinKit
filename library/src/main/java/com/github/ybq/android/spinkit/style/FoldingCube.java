@@ -94,5 +94,12 @@ public class FoldingCube extends SpriteGroup {
                     interpolator(new LinearInterpolator())
                     .build();
         }
+
+        @Override
+        public void reset() {
+            super.reset();
+            setAlpha(0);
+            setRotateX(-180);
+        }
     }
 }

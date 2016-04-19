@@ -200,9 +200,11 @@ public abstract class Sprite extends Drawable implements
     public ValueAnimator obtainAnimation() {
         if (animator == null) {
             animator = getAnimation();
+            if (animator != null) {
+                animator.addUpdateListener(this);
+            }
         }
         if (animator != null) {
-            animator.addUpdateListener(this);
             animator.setStartDelay(animationDelay);
         }
         return animator;
@@ -211,8 +213,7 @@ public abstract class Sprite extends Drawable implements
     @Override
     public void stop() {
         if (AnimationUtils.isStarted(animator)) {
-            animator.removeAllUpdateListeners();
-            animator.end();
+            animator.cancel();
             reset();
         }
     }
