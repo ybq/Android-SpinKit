@@ -63,7 +63,7 @@ public class Page1Fragment extends Fragment implements Colors {
 
             @Override
             public int getItemCount() {
-                return 33;
+                return 11;
             }
         });
     }
