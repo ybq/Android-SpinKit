@@ -36,11 +36,5 @@ public class FadingCircle extends CircleSpriteGroup {
                     duration(1200).
                     easeInOut(fractions).build();
         }
-
-        @Override
-        public void reset() {
-            super.reset();
-            setAlpha(0);
-        }
     }
 }

@@ -60,11 +60,5 @@ public class ThreeBounce extends SpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
-
-        @Override
-        public void reset() {
-            super.reset();
-            setScale(0f);
-        }
     }
 }

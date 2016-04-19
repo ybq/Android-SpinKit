@@ -51,11 +51,5 @@ public class Wave extends SpriteGroup {
                     easeInOut(fractions)
                     .build();
         }
-
-        @Override
-        public void reset() {
-            super.reset();
-            setScaleY(0.4f);
-        }
     }
 }
