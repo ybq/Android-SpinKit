@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -81,7 +80,6 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                         break;
                     case 5:
                         drawable = new ChasingDots();
-                        drawable.setColor(ContextCompat.getColor(DetailActivity.this, R.color.colorAccent));
                         break;
                     case 6:
                         drawable = new ThreeBounce();
@@ -110,7 +108,6 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                 container.removeView((View) object);
             }
         });
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
