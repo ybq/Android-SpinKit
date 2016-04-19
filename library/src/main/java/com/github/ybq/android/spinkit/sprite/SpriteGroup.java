@@ -100,7 +100,7 @@ public abstract class SpriteGroup extends Sprite {
 
     @Override
     public boolean isRunning() {
-        return AnimationUtils.isRunning(sprites) ||super.isRunning();
+        return AnimationUtils.isRunning(sprites) || super.isRunning();
     }
 
     public abstract Sprite[] onCreateChild();

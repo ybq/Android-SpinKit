@@ -44,13 +44,13 @@ public class ChasingDots extends SpriteGroup {
         bounds = clipSquare(bounds);
         int drawW = (int) (bounds.width() * 0.6f);
         getChildAt(0).setDrawBounds(
-                bounds.left,
+                bounds.right - drawW,
                 bounds.top,
                 bounds.right
                 , bounds.top + drawW
         );
         getChildAt(1).setDrawBounds(
-                bounds.left,
+                bounds.right - drawW,
                 bounds.bottom - drawW,
                 bounds.right,
                 bounds.bottom
