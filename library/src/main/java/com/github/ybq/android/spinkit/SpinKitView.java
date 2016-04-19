@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -89,7 +90,13 @@ public class SpinKitView extends ProgressBar {
             if (mSprite != null && getVisibility() == VISIBLE) {
                 mSprite.start();
             }
-        } else {
+        }
+    }
+
+    @Override
+    public void onScreenStateChanged(int screenState) {
+        super.onScreenStateChanged(screenState);
+        if (screenState == View.SCREEN_STATE_OFF) {
             if (mSprite != null) {
                 mSprite.stop();
             }
