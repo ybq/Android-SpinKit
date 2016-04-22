@@ -12,5 +12,6 @@
         <item>CubeGrid</item>
         <item>FadingCircle</item>
         <item>FoldingCube</item>
+        <item>RotatingCircle</item>
     </string-array>
 </resources>
