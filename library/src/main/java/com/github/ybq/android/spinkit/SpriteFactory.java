@@ -11,6 +11,7 @@ import com.github.ybq.android.spinkit.style.Pulse;
 import com.github.ybq.android.spinkit.style.RotatingPlane;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
+import com.github.ybq.android.spinkit.style.Wave;
 
 /**
  * Created by ybq.
@@ -27,7 +28,7 @@ public class SpriteFactory {
                 sprite = new DoubleBounce();
                 break;
             case WAVE:
-                sprite = new RotatingPlane();
+                sprite = new Wave();
                 break;
             case WANDERING_CUBES:
                 sprite = new WanderingCubes();
