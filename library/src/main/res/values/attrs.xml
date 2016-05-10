@@ -15,6 +15,7 @@
             <enum name="CubeGrid" value="8" />
             <enum name="FadingCircle" value="9" />
             <enum name="FoldingCube" value="10" />
+            <enum name="RotatingCircle" value="11" />
         </attr>
         <attr name="SpinKit_Color" format="color" />
     </declare-styleable>

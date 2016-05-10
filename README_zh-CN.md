@@ -3,10 +3,11 @@
 
  
 ##### Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
-## 效果 
+## 效果
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="426px"/>
  
+
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen2.gif" width="200px" height="200px"/>
 
 ## Gradle 依赖
@@ -34,7 +35,7 @@ dependencies {
 ## 使用
 
 ```xml
-<com.github.ybq.android.spinkit.SpinKitView 
+<com.github.ybq.android.spinkit.SpinKitView
      xmlns:app="http://schemas.android.com/apk/res-auto"
      android:id="@+id/spin_kit"
      style="@style/SpinKitView.Large.Circle"
@@ -42,7 +43,7 @@ dependencies {
      android:layout_height="wrap_content"
      android:layout_gravity="center"
      app:SpinKit_Color="@color/colorAccent" />         
-``` 
+```
 
 ```xml
 @style/SpinKitView
@@ -50,7 +51,7 @@ dependencies {
 @style/SpinKitView.Large
 @style/SpinKitView.Small
 @style/SpinKitView.Small.DoubleBounce                        
-``` 
+```
 ####ProgressBar
 
 ```java
@@ -74,35 +75,31 @@ Circle           | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 CubeGrid         | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/CubeGrid.gif' alt='CubeGrid' width="90px" height="90px"/>
 FadingCircle     | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/FadingCircle.gif' alt='FadingCircle' width="90px" height="90px"/>
 FoldingCube      | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/FoldingCube.gif' alt='FoldingCube' width="90px" height="90px"/>
- 
-  
-    
-      
- 
- 
- 
-##感谢 
+RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/RotatingCircle.gif' alt='RotatingCircle' width="90px" height="90px"/>
+
+
+
+
+
+
+
+##感谢
 - [SpinKit](https://github.com/tobiasahlin/SpinKit).
 
 
- 
+
 ##LICENSE
- 
+
 	 Copyright ybq 2016
-	
+
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
-	
+
 	    http://www.apache.org/licenses/LICENSE-2.0
-	
+
 	Unless required by applicable law or agreed to in writing, software
 	distributed under the License is distributed on an "AS IS" BASIS,
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-
-
-
-
-

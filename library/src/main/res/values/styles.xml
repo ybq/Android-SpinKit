@@ -41,6 +41,10 @@
         <item name="SpinKit_Style">RotatingPlane</item>
     </style>
 
+    <style name="SpinKitView.RotatingCircle">
+        <item name="SpinKit_Style">RotatingCircle</item>
+    </style>
+
     <style name="SpinKitView.ThreeBounce">
         <item name="SpinKit_Style">ThreeBounce</item>
     </style>
@@ -92,6 +96,10 @@
         <item name="SpinKit_Style">RotatingPlane</item>
     </style>
 
+    <style name="SpinKitView.Large.RotatingCircle">
+        <item name="SpinKit_Style">RotatingCircle</item>
+    </style>
+
     <style name="SpinKitView.Large.ThreeBounce">
         <item name="SpinKit_Style">ThreeBounce</item>
     </style>
@@ -141,6 +149,10 @@
 
     <style name="SpinKitView.Small.RotatingPlane">
         <item name="SpinKit_Style">RotatingPlane</item>
+    </style>
+
+    <style name="SpinKitView.Small.RotatingCircle">
+        <item name="SpinKit_Style">RotatingCircle</item>
     </style>
 
     <style name="SpinKitView.Small.ThreeBounce">

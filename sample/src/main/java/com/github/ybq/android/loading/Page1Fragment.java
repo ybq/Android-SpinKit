@@ -19,6 +19,7 @@ import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 import com.github.ybq.android.spinkit.style.FoldingCube;
 import com.github.ybq.android.spinkit.style.Pulse;
+import com.github.ybq.android.spinkit.style.RotatingCircle;
 import com.github.ybq.android.spinkit.style.RotatingPlane;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
@@ -58,12 +59,12 @@ public class Page1Fragment extends Fragment implements Colors {
 
             @Override
             public void onBindViewHolder(Holder holder, int position) {
-                holder.bind(position % 11);
+                holder.bind(position % 12);
             }
 
             @Override
             public int getItemCount() {
-                return 11;
+                return 12;
             }
         });
     }
@@ -121,6 +122,9 @@ public class Page1Fragment extends Fragment implements Colors {
                     break;
                 case 10:
                     drawable = new FoldingCube();
+                    break;
+                case 11:
+                    drawable = new RotatingCircle();
                     break;
             }
             spinKitView.setIndeterminateDrawable(drawable);
