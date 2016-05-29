@@ -1,8 +1,8 @@
 
 # Android-SpinKit
-
  
-##### Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
+> Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
+
 ## 效果
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="426px"/>
@@ -12,9 +12,9 @@
 
 ## Gradle 依赖
 
-  1.在项目根目录的build.gradle添加
+  1. 在项目根目录的build.gradle添加
 
-```gradle
+ ```gradle
 allprojects {
 		repositories {
 			...
@@ -23,9 +23,9 @@ allprojects {
 	}
 ```
 
-  2.添加依赖
+  2. 添加依赖
 
-``` gradle
+ ``` gradle
 dependencies {
     compile 'com.github.ybq:Android-SpinKit:1.0.4'
  }
@@ -33,8 +33,9 @@ dependencies {
 
 
 ## 使用
+- Xml
 
-```xml
+ ```xml
 <com.github.ybq.android.spinkit.SpinKitView
      xmlns:app="http://schemas.android.com/apk/res-auto"
      android:id="@+id/spin_kit"
@@ -43,18 +44,12 @@ dependencies {
      android:layout_height="wrap_content"
      android:layout_gravity="center"
      app:SpinKit_Color="@color/colorAccent" />         
-```
+ ```
+ 
+ 
+- ProgressBar
 
-```xml
-@style/SpinKitView
-@style/SpinKitView.Circle
-@style/SpinKitView.Large
-@style/SpinKitView.Small
-@style/SpinKitView.Small.DoubleBounce                        
-```
-####ProgressBar
-
-```java
+ ```java
 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
 DoubleBounce doubleBounce = new DoubleBounce();
 progressBar.setIndeterminateDrawable(doubleBounce);
@@ -103,3 +98,5 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
+
+

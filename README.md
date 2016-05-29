@@ -1,6 +1,6 @@
-
 # Android-SpinKit
-##### Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
+>Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
+
 ## Preview
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="426px"/>
@@ -11,18 +11,18 @@
 
   1. Add the JitPack repository to your build file
 
-```gradle
-allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
+	```gradle
+	allprojects {
+				repositories {
+					...
+					maven { url "https://jitpack.io" }
+				}
 	}
-```
+	```
 
-  2.Add the dependency
+  2. Add the dependency
 
-``` gradle
+ ``` gradle
 dependencies {
     compile 'com.github.ybq:Android-SpinKit:1.0.4'
  }
@@ -30,8 +30,9 @@ dependencies {
 
 
 ## Usage
+- Xml
 
-```xml
+ ```xml
 <com.github.ybq.android.spinkit.SpinKitView
      xmlns:app="http://schemas.android.com/apk/res-auto"
      android:id="@+id/spin_kit"
@@ -41,23 +42,24 @@ dependencies {
      android:layout_gravity="center"
      app:SpinKit_Color="@color/colorAccent" />         
 ```
+ 
+- ProgressBar
 
-```xml
-@style/SpinKitView
-@style/SpinKitView.Circle
-@style/SpinKitView.Large
-@style/SpinKitView.Small
-@style/SpinKitView.Small.DoubleBounce                        
-```
-####ProgressBar
-
-```java
+ ```java
 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
 DoubleBounce doubleBounce = new DoubleBounce();
 progressBar.setIndeterminateDrawable(doubleBounce);
 ```
 
-###Style:
+## Style
+> 
+ ```xml
+@style/SpinKitView
+@style/SpinKitView.Circle
+@style/SpinKitView.Large
+@style/SpinKitView.Small
+@style/SpinKitView.Small.DoubleBounce   
+ ```
 
 Style | Preview
 ------------     |   -------------
@@ -80,12 +82,12 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 
 
 
-##Thanks
+## Thanks
 - [SpinKit](https://github.com/tobiasahlin/SpinKit).
 
 
 
-##LICENSE
+## LICENSE
 
 	 Copyright ybq 2016
 
@@ -100,3 +102,5 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
+
+
