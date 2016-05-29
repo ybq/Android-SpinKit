@@ -6,12 +6,12 @@ import android.graphics.Rect;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class WanderingCubes extends SpriteGroup {
+public class WanderingCubes extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -44,7 +44,7 @@ public class WanderingCubes extends SpriteGroup {
 
     class Cube extends RectSprite {
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.25f, 0.5f, 0.51f, 0.75f, 1f};
             return new SpriteAnimatorBuilder(this).
                     rotate(fractions, 0, -90, -179, -180, -270, -360).

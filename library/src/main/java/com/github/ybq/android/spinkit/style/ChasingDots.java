@@ -7,12 +7,12 @@ import android.view.animation.LinearInterpolator;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class ChasingDots extends SpriteGroup {
+public class ChasingDots extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -29,7 +29,7 @@ public class ChasingDots extends SpriteGroup {
     }
 
     @Override
-    public ValueAnimator getAnimation() {
+    public ValueAnimator onCreateAnimation() {
         float fractions[] = new float[]{0f, 1f};
         return new SpriteAnimatorBuilder(this).
                 rotate(fractions, 0, 360).
@@ -64,7 +64,7 @@ public class ChasingDots extends SpriteGroup {
         }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.5f, 1f};
             return new SpriteAnimatorBuilder(this).
                     scale(fractions, 0f, 1f, 0f).

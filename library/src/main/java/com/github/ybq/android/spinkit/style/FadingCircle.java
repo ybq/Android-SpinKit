@@ -4,13 +4,13 @@ import android.animation.ValueAnimator;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
-import com.github.ybq.android.spinkit.sprite.CircleSpriteGroup;
+import com.github.ybq.android.spinkit.sprite.CircleSpriteContainer;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**
  * Created by ybq.
  */
-public class FadingCircle extends CircleSpriteGroup {
+public class FadingCircle extends CircleSpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -29,7 +29,7 @@ public class FadingCircle extends CircleSpriteGroup {
         }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.39f, 0.4f, 1f};
             return new SpriteAnimatorBuilder(this).
                     alpha(fractions, 0, 0, 255, 0).

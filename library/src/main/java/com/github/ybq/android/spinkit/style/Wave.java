@@ -6,12 +6,12 @@ import android.graphics.Rect;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class Wave extends SpriteGroup {
+public class Wave extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -44,7 +44,7 @@ public class Wave extends SpriteGroup {
         }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.2f, 0.4f, 1f};
             return new SpriteAnimatorBuilder(this).scaleY(fractions, 0.4f, 1f, 0.4f, 0.4f).
                     duration(1200).

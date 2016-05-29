@@ -8,12 +8,12 @@ import android.view.animation.LinearInterpolator;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class FoldingCube extends SpriteGroup {
+public class FoldingCube extends SpriteContainer {
 
     @SuppressWarnings("FieldCanBeLocal")
     private boolean wrapContent = false;
@@ -84,7 +84,7 @@ public class FoldingCube extends SpriteGroup {
         }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.1f, 0.25f, 0.75f, 0.9f, 1f};
             return new SpriteAnimatorBuilder(this).
                     alpha(fractions, 0, 0, 255, 255, 0, 0).

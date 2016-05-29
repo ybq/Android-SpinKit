@@ -180,7 +180,7 @@ public abstract class Sprite extends Drawable implements
 
     }
 
-    public abstract ValueAnimator getAnimation();
+    public abstract ValueAnimator onCreateAnimation();
 
     @Override
     public void start() {
@@ -199,7 +199,7 @@ public abstract class Sprite extends Drawable implements
 
     public ValueAnimator obtainAnimation() {
         if (animator == null) {
-            animator = getAnimation();
+            animator = onCreateAnimation();
         }
         if (animator != null) {
             animator.addUpdateListener(this);

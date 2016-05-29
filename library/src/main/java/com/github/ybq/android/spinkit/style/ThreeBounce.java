@@ -6,12 +6,12 @@ import android.graphics.Rect;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class ThreeBounce extends SpriteGroup {
+public class ThreeBounce extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -53,7 +53,7 @@ public class ThreeBounce extends SpriteGroup {
         }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.4f, 0.8f, 1f};
             return new SpriteAnimatorBuilder(this).scale(fractions, 0f, 1f, 0f, 0f).
                     duration(1400).

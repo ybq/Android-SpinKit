@@ -6,12 +6,12 @@ import android.graphics.Rect;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class CubeGrid extends SpriteGroup {
+public class CubeGrid extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -46,7 +46,7 @@ public class CubeGrid extends SpriteGroup {
 
     class GridItem extends RectSprite {
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.35f, 0.7f, 1f};
             return new SpriteAnimatorBuilder(this).
                     scale(fractions, 1f, 0f, 1f, 1f).

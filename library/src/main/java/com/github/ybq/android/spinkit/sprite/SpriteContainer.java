@@ -9,13 +9,13 @@ import com.github.ybq.android.spinkit.animation.AnimationUtils;
 /**
  * Created by ybq.
  */
-public abstract class SpriteGroup extends Sprite {
+public abstract class SpriteContainer extends Sprite {
 
     private Sprite[] sprites;
 
     private int color;
 
-    public SpriteGroup() {
+    public SpriteContainer() {
         sprites = onCreateChild();
         initCallBack();
         onChildCreated(sprites);
@@ -102,7 +102,7 @@ public abstract class SpriteGroup extends Sprite {
     public abstract Sprite[] onCreateChild();
 
     @Override
-    public ValueAnimator getAnimation() {
+    public ValueAnimator onCreateAnimation() {
         return null;
     }
 }
