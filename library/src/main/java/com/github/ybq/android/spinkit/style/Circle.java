@@ -4,13 +4,13 @@ import android.animation.ValueAnimator;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
-import com.github.ybq.android.spinkit.sprite.CircleSpriteContainer;
+import com.github.ybq.android.spinkit.sprite.CircleContainer;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**
  * Created by ybq.
  */
-public class Circle extends CircleSpriteContainer {
+public class Circle extends CircleContainer {
 
     @Override
     public Sprite[] onCreateChild() {
