@@ -81,7 +81,6 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                         break;
                     case 5:
                         drawable = new ChasingDots();
-                        drawable.setColor(ContextCompat.getColor(DetailActivity.this, R.color.colorAccent));
                         break;
                     case 6:
                         drawable = new ThreeBounce();

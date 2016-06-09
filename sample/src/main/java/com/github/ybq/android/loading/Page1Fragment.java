@@ -106,7 +106,6 @@ public class Page1Fragment extends Fragment implements Colors {
                     break;
                 case 5:
                     drawable = new ChasingDots();
-                    drawable.setColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
                     break;
                 case 6:
                     drawable = new ThreeBounce();
