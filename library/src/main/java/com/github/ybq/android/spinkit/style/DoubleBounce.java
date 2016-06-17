@@ -25,9 +25,9 @@ public class DoubleBounce extends SpriteContainer {
         sprites[1].setAnimationDelay(-1000);
     }
 
-    class Bounce extends CircleSprite {
+    private class Bounce extends CircleSprite {
 
-        public Bounce() {
+        Bounce() {
             setAlpha(153);
             setScale(0f);
         }

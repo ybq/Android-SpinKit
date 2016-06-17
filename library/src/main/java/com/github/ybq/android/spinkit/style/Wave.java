@@ -37,9 +37,9 @@ public class Wave extends SpriteContainer {
         }
     }
 
-    class WaveItem extends RectSprite {
+    private class WaveItem extends RectSprite {
 
-        public WaveItem() {
+        WaveItem() {
             setScaleY(0.4f);
         }
 

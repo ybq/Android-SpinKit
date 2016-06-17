@@ -42,7 +42,7 @@ public class WanderingCubes extends SpriteContainer {
         }
     }
 
-    class Cube extends RectSprite {
+    private class Cube extends RectSprite {
         @Override
         public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.25f, 0.5f, 0.51f, 0.75f, 1f};

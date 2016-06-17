@@ -6,7 +6,7 @@ import android.graphics.Rect;
 /**
  * Created by ybq.
  */
-public abstract class CircleContainer extends SpriteContainer {
+public abstract class CircleLayoutContainer extends SpriteContainer {
 
     @Override
     public void drawChild(Canvas canvas) {

@@ -18,6 +18,7 @@ import com.github.ybq.android.spinkit.animation.IntProperty;
 /**
  * Created by ybq.
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class Sprite extends Drawable implements
         ValueAnimator.AnimatorUpdateListener
         , Animatable

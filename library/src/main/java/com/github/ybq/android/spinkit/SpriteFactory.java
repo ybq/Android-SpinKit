@@ -7,7 +7,10 @@ import com.github.ybq.android.spinkit.style.CubeGrid;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 import com.github.ybq.android.spinkit.style.FoldingCube;
+import com.github.ybq.android.spinkit.style.MultiplePulse;
+import com.github.ybq.android.spinkit.style.MultiplePulseRing;
 import com.github.ybq.android.spinkit.style.Pulse;
+import com.github.ybq.android.spinkit.style.PulseRing;
 import com.github.ybq.android.spinkit.style.RotatingCircle;
 import com.github.ybq.android.spinkit.style.RotatingPlane;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
@@ -57,6 +60,15 @@ public class SpriteFactory {
                 break;
             case ROTATING_CIRCLE:
                 sprite = new RotatingCircle();
+                break;
+            case MULTIPLE_PULSE:
+                sprite = new MultiplePulse();
+                break;
+            case PULSE_RING:
+                sprite = new PulseRing();
+                break;
+            case MULTIPLE_PULSE_RING:
+                sprite = new MultiplePulseRing();
                 break;
             default:
                 break;

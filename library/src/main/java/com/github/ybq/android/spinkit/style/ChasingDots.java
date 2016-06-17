@@ -57,9 +57,9 @@ public class ChasingDots extends SpriteContainer {
         );
     }
 
-    class Dot extends CircleSprite {
+    private class Dot extends CircleSprite {
 
-        public Dot() {
+        Dot() {
             setScale(0f);
         }
 

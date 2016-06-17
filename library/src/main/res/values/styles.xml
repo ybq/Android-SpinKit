@@ -57,6 +57,18 @@
         <item name="SpinKit_Style">Wave</item>
     </style>
 
+    <style name="SpinKitView.MultiplePulse">
+        <item name="SpinKit_Style">MultiplePulse</item>
+    </style>
+
+    <style name="SpinKitView.PulseRing">
+        <item name="SpinKit_Style">PulseRing</item>
+    </style>
+
+    <style name="SpinKitView.MultiplePulseRing">
+        <item name="SpinKit_Style">MultiplePulseRing</item>
+    </style>
+
     <style name="SpinKitView.Large">
         <item name="android:minWidth">76dip</item>
         <item name="android:maxWidth">76dip</item>
@@ -110,6 +122,18 @@
 
     <style name="SpinKitView.Large.Wave">
         <item name="SpinKit_Style">Wave</item>
+    </style>
+
+    <style name="SpinKitView.Large.MultiplePulse">
+        <item name="SpinKit_Style">MultiplePulse</item>
+    </style>
+
+    <style name="SpinKitView.Large.PulseRing">
+        <item name="SpinKit_Style">PulseRing</item>
+    </style>
+
+    <style name="SpinKitView.Large.MultiplePulseRing">
+        <item name="SpinKit_Style">MultiplePulseRing</item>
     </style>
 
     <style name="SpinKitView.Small">
@@ -167,4 +191,15 @@
         <item name="SpinKit_Style">Wave</item>
     </style>
 
+    <style name="SpinKitView.Small.MultiplePulse">
+        <item name="SpinKit_Style">MultiplePulse</item>
+    </style>
+
+    <style name="SpinKitView.Small.PulseRing">
+        <item name="SpinKit_Style">PulseRing</item>
+    </style>
+
+    <style name="SpinKitView.Small.MultiplePulseRing">
+        <item name="SpinKit_Style">MultiplePulseRing</item>
+    </style>
 </resources>

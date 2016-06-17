@@ -4,13 +4,13 @@ import android.animation.ValueAnimator;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
-import com.github.ybq.android.spinkit.sprite.CircleContainer;
+import com.github.ybq.android.spinkit.sprite.CircleLayoutContainer;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**
  * Created by ybq.
  */
-public class FadingCircle extends CircleContainer {
+public class FadingCircle extends CircleLayoutContainer {
 
     @Override
     public Sprite[] onCreateChild() {
@@ -22,9 +22,9 @@ public class FadingCircle extends CircleContainer {
         return dots;
     }
 
-    class Dot extends CircleSprite {
+    private class Dot extends CircleSprite {
 
-        public Dot() {
+        Dot() {
             setAlpha(0);
         }
 

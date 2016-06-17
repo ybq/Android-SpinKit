@@ -9,6 +9,7 @@ import com.github.ybq.android.spinkit.animation.AnimationUtils;
 /**
  * Created by ybq.
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class SpriteContainer extends Sprite {
 
     private Sprite[] sprites;

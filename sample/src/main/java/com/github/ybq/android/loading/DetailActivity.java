@@ -1,9 +1,9 @@
 package com.github.ybq.android.loading;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,22 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.github.ybq.android.spinkit.SpriteFactory;
+import com.github.ybq.android.spinkit.Style;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.style.ChasingDots;
-import com.github.ybq.android.spinkit.style.Circle;
-import com.github.ybq.android.spinkit.style.CubeGrid;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.FadingCircle;
-import com.github.ybq.android.spinkit.style.FoldingCube;
-import com.github.ybq.android.spinkit.style.Pulse;
-import com.github.ybq.android.spinkit.style.RotatingCircle;
-import com.github.ybq.android.spinkit.style.RotatingPlane;
-import com.github.ybq.android.spinkit.style.ThreeBounce;
-import com.github.ybq.android.spinkit.style.WanderingCubes;
-import com.github.ybq.android.spinkit.style.Wave;
 
 public class DetailActivity extends AppCompatActivity implements Colors {
 
+    @SuppressWarnings("WeakerAccess")
     public static void start(Context context, int position) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra("position", position);
@@ -42,11 +33,9 @@ public class DetailActivity extends AppCompatActivity implements Colors {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setOffscreenPageLimit(0);
         viewPager.setAdapter(new PagerAdapter() {
-            String[] names = getResources().getStringArray(R.array.names);
-
             @Override
             public int getCount() {
-                return 12;
+                return Style.values().length;
             }
 
             @Override
@@ -56,51 +45,13 @@ public class DetailActivity extends AppCompatActivity implements Colors {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager, null);
+                @SuppressLint("InflateParams") View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager, null);
 
                 SpinKitView spinKitView = (SpinKitView) view.findViewById(R.id.spin_kit);
                 TextView name = (TextView) view.findViewById(R.id.name);
-                name.setText(names[position]);
-
-                Sprite drawable = null;
-                switch (position) {
-                    case 0:
-                        drawable = new RotatingPlane();
-                        break;
-                    case 1:
-                        drawable = new DoubleBounce();
-                        break;
-                    case 2:
-                        drawable = new Wave();
-                        break;
-                    case 3:
-                        drawable = new WanderingCubes();
-                        break;
-                    case 4:
-                        drawable = new Pulse();
-                        break;
-                    case 5:
-                        drawable = new ChasingDots();
-                        break;
-                    case 6:
-                        drawable = new ThreeBounce();
-                        break;
-                    case 7:
-                        drawable = new Circle();
-                        break;
-                    case 8:
-                        drawable = new CubeGrid();
-                        break;
-                    case 9:
-                        drawable = new FadingCircle();
-                        break;
-                    case 10:
-                        drawable = new FoldingCube();
-                        break;
-                    case 11:
-                        drawable = new RotatingCircle();
-                        break;
-                }
+                Style style = Style.values()[position];
+                name.setText(style.name());
+                Sprite drawable = SpriteFactory.create(style);
                 spinKitView.setIndeterminateDrawable(drawable);
                 container.addView(view);
 

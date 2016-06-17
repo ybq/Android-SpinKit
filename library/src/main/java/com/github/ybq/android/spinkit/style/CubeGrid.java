@@ -44,7 +44,7 @@ public class CubeGrid extends SpriteContainer {
         }
     }
 
-    class GridItem extends RectSprite {
+    private class GridItem extends RectSprite {
         @Override
         public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.35f, 0.7f, 1f};

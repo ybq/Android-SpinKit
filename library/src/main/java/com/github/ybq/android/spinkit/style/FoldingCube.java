@@ -76,9 +76,9 @@ public class FoldingCube extends SpriteContainer {
         }
     }
 
-    class Cube extends RectSprite {
+    private class Cube extends RectSprite {
 
-        public Cube() {
+        Cube() {
             setAlpha(0);
             setRotateX(-180);
         }

@@ -16,7 +16,10 @@ public enum Style {
     CUBE_GRID(8),
     FADING_CIRCLE(9),
     FOLDING_CUBE(10),
-    ROTATING_CIRCLE(11);
+    ROTATING_CIRCLE(11),
+    MULTIPLE_PULSE(12),
+    PULSE_RING(13),
+    MULTIPLE_PULSE_RING(14);
 
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private int value;

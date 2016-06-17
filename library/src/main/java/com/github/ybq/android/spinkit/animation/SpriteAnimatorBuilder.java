@@ -89,7 +89,7 @@ public class SpriteAnimatorBuilder {
         return this;
     }
 
-    public PropertyValuesHolder holder(float[] fractions, Property property, float[] values) {
+    private PropertyValuesHolder holder(float[] fractions, Property property, float[] values) {
         ensurePair(fractions.length, values.length);
         Keyframe[] keyframes = new Keyframe[fractions.length];
         for (int i = 0; i < values.length; i++) {
@@ -103,7 +103,7 @@ public class SpriteAnimatorBuilder {
         return valuesHolder;
     }
 
-    public PropertyValuesHolder holder(float[] fractions, Property property, int[] values) {
+    private PropertyValuesHolder holder(float[] fractions, Property property, int[] values) {
         ensurePair(fractions.length, values.length);
         Keyframe[] keyframes = new Keyframe[fractions.length];
         for (int i = 0; i < values.length; i++) {

@@ -46,9 +46,9 @@ public class ThreeBounce extends SpriteContainer {
         }
     }
 
-    class Bounce extends CircleSprite {
+    private class Bounce extends CircleSprite {
 
-        public Bounce() {
+        Bounce() {
             setScale(0f);
         }
 
