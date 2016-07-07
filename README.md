@@ -82,7 +82,7 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 
 
 
-## Thanks
+## Acknowledgements
 - [SpinKit](https://github.com/tobiasahlin/SpinKit).
 
 
