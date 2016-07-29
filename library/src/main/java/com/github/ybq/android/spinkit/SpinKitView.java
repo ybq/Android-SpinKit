@@ -75,6 +75,14 @@ public class SpinKitView extends ProgressBar {
         return mSprite;
     }
 
+    public void setColor(int color) {
+        this.mColor = color;
+        if (mSprite != null) {
+            mSprite.setColor(color);
+        }
+        invalidate();
+    }
+
     @Override
     public void unscheduleDrawable(Drawable who) {
         super.unscheduleDrawable(who);
