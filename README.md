@@ -24,7 +24,7 @@
 
  ``` gradle
 dependencies {
-    compile 'com.github.ybq:Android-SpinKit:1.0.4'
+    compile 'com.github.ybq:Android-SpinKit:1.0.5'
  }
 ```
 
