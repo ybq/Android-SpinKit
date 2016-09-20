@@ -1,6 +1,7 @@
 package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
+import android.os.Build;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
@@ -22,7 +23,11 @@ public class DoubleBounce extends SpriteContainer {
     @Override
     public void onChildCreated(Sprite... sprites) {
         super.onChildCreated(sprites);
-        sprites[1].setAnimationDelay(-1000);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sprites[1].setAnimationDelay(1000);
+        } else {
+            sprites[1].setAnimationDelay(-1000);
+        }
     }
 
     private class Bounce extends CircleSprite {

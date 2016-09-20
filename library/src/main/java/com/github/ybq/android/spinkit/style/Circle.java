@@ -1,6 +1,7 @@
 package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
+import android.os.Build;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
@@ -17,7 +18,11 @@ public class Circle extends CircleLayoutContainer {
         Dot[] dots = new Dot[12];
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new Dot();
-            dots[i].setAnimationDelay(1200 / 12 * i + -1200);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                dots[i].setAnimationDelay(1200 / 12 * i);
+            } else {
+                dots[i].setAnimationDelay(1200 / 12 * i + -1200);
+            }
         }
         return dots;
     }

@@ -3,6 +3,7 @@ package com.github.ybq.android.spinkit.style;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Build;
 import android.view.animation.LinearInterpolator;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
@@ -24,7 +25,12 @@ public class FoldingCube extends SpriteContainer {
                 = new Cube[4];
         for (int i = 0; i < cubes.length; i++) {
             cubes[i] = new Cube();
-            cubes[i].setAnimationDelay(300 * i - 1200);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                cubes[i].setAnimationDelay(300 * i);
+            } else {
+                cubes[i].setAnimationDelay(300 * i - 1200);
+            }
         }
         return cubes;
     }

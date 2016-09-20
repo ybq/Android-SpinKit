@@ -2,6 +2,7 @@ package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
+import android.os.Build;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
@@ -18,7 +19,12 @@ public class Wave extends SpriteContainer {
         WaveItem[] waveItems = new WaveItem[5];
         for (int i = 0; i < waveItems.length; i++) {
             waveItems[i] = new WaveItem();
-            waveItems[i].setAnimationDelay(-1200 + i * 100);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                waveItems[i].setAnimationDelay(600 + i * 100);
+            } else {
+                waveItems[i].setAnimationDelay(-1200 + i * 100);
+            }
+
         }
         return waveItems;
     }
