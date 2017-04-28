@@ -121,6 +121,10 @@ public class SpinKitView extends ProgressBar {
       if (mSprite != null) {
         mSprite.stop();
       }
+    } else {
+      if (mSprite != null) {
+        mSprite.start();
+      }
     }
   }
 
