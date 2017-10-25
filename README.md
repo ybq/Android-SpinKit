@@ -11,14 +11,14 @@
 
   1. Add the JitPack repository to your build file
 
-	```gradle
+```gradle
 	allprojects {
 				repositories {
 					...
 					maven { url "https://jitpack.io" }
 				}
 	}
-	```
+```
 
   2. Add the dependency
 
