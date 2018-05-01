@@ -13,10 +13,9 @@
 
 ```gradle
 	allprojects {
-				repositories {
-					...
-					maven { url "https://jitpack.io" }
-				}
+	repositories {
+	maven { url "https://jitpack.io" }
+	}
 	}
 ```
 
@@ -24,7 +23,7 @@
 
  ``` gradle
 dependencies {
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+    implement 'com.github.ybq:Android-SpinKit:1.1.0'
  }
 ```
 
