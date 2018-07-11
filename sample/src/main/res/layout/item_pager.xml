@@ -4,23 +4,24 @@
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
-
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fitsSystemWindows="true"
-        android:indeterminate="true" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+    android:orientation="vertical"
+    >
+  <com.github.ybq.android.spinkit.SpinKitView
+      android:id="@+id/spin_kit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:fitsSystemWindows="true"
+      android:indeterminate="true"
+      style="@style/SpinKitView.Large"
+      />
+  <TextView
+      android:id="@+id/name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|center_horizontal"
+      android:layout_marginBottom="20dp"
+      android:textColor="@android:color/white"
+      android:textSize="24sp"
+      />
 </FrameLayout>

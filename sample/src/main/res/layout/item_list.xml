@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:orientation="vertical">
-
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="10dp" />
-
+    android:orientation="vertical"
+    >
+  <com.github.ybq.android.spinkit.SpinKitView
+      android:id="@+id/spin_kit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:padding="10dp"
+      style="@style/SpinKitView"
+      />
 </com.github.ybq.android.loading.SquareFrameLayout>
