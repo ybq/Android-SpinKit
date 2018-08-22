@@ -1,37 +1,38 @@
-# Android-SpinKit
->Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
 
-## Preview
+# Android-SpinKit
+ 
+> Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
+
+## 效果
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="240px"/>
+ 
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen2.gif" width="200px" height="200px"/>
 
-## Gradle Dependency
+## Gradle 依赖
 
-  1. Add the JitPack repository to your build file
+  1. 在项目根目录的build.gradle添加
 
-```gradle
-	allprojects {
-				repositories {
-					...
-					maven { url "https://jitpack.io" }
-				}
+ ```gradle
+allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
 	}
 ```
 
-  2. Add the dependency
+  2. 添加依赖
 
  ``` gradle
 dependencies {
-
-    implementation 'com.github.ybq:AndroidSpinKit:v1.0.0'
-
+    compile 'com.github.ybq:Android-SpinKit:1.0.5'
  }
 ```
 
 
-## Usage
+## 使用
 - Xml
 
  ```xml
@@ -43,7 +44,8 @@ dependencies {
      android:layout_height="wrap_content"
      android:layout_gravity="center"
      app:SpinKit_Color="@color/colorAccent" />         
-```
+ ```
+ 
  
 - ProgressBar
 
@@ -53,17 +55,9 @@ DoubleBounce doubleBounce = new DoubleBounce();
 progressBar.setIndeterminateDrawable(doubleBounce);
 ```
 
-## Style
-> 
- ```xml
-@style/SpinKitView
-@style/SpinKitView.Circle
-@style/SpinKitView.Large
-@style/SpinKitView.Small
-@style/SpinKitView.Small.DoubleBounce   
- ```
+###样式:
 
-Style | Preview
+样式 | 预览
 ------------     |   -------------
 RotatingPlane    | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/RotatingPlane.gif' alt='RotatingPlane' width="90px" height="90px"/>
 DoubleBounce     | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/DoubleBounce.gif' alt='DoubleBounce' width="90px" height="90px"/>
@@ -84,7 +78,7 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 
 
 
-## Acknowledgements
+##感谢
 - [SpinKit](https://github.com/tobiasahlin/SpinKit).
 
 

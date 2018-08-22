@@ -2,24 +2,29 @@ package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
+import android.os.Build;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class Wave extends SpriteGroup {
-
+public class Wave extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
         WaveItem[] waveItems = new WaveItem[5];
         for (int i = 0; i < waveItems.length; i++) {
             waveItems[i] = new WaveItem();
-            waveItems[i].setAnimationDelay(-1200 + i * 100);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                waveItems[i].setAnimationDelay(600 + i * 100);
+            } else {
+                waveItems[i].setAnimationDelay(-1200 + i * 100);
+            }
+
         }
         return waveItems;
     }
@@ -38,19 +43,19 @@ public class Wave extends SpriteGroup {
         }
     }
 
-    class WaveItem extends RectSprite {
+    private class WaveItem extends RectSprite {
+
+        WaveItem() {
+            setScaleY(0.4f);
+        }
+
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.2f, 0.4f, 1f};
             return new SpriteAnimatorBuilder(this).scaleY(fractions, 0.4f, 1f, 0.4f, 0.4f).
                     duration(1200).
                     easeInOut(fractions)
                     .build();
-        }
-
-        @Override
-        public void onAnimationUpdate(ValueAnimator animation) {
-            invalidateSelf();
         }
     }
 }

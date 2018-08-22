@@ -9,13 +9,14 @@ import com.github.ybq.android.spinkit.animation.AnimationUtils;
 /**
  * Created by ybq.
  */
-public abstract class SpriteGroup extends Sprite {
+@SuppressWarnings("WeakerAccess")
+public abstract class SpriteContainer extends Sprite {
 
     private Sprite[] sprites;
 
     private int color;
 
-    public SpriteGroup() {
+    public SpriteContainer() {
         sprites = onCreateChild();
         initCallBack();
         onChildCreated(sprites);
@@ -40,7 +41,6 @@ public abstract class SpriteGroup extends Sprite {
     public Sprite getChildAt(int index) {
         return sprites == null ? null : sprites[index];
     }
-
 
     @Override
     public void setColor(int color) {
@@ -71,7 +71,6 @@ public abstract class SpriteGroup extends Sprite {
         }
     }
 
-
     @Override
     protected void drawSelf(Canvas canvas) {
     }
@@ -84,32 +83,27 @@ public abstract class SpriteGroup extends Sprite {
         }
     }
 
-
     @Override
     public void start() {
         super.start();
         AnimationUtils.start(sprites);
-        AnimationUtils.start(getAnimation());
     }
 
     @Override
     public void stop() {
         super.stop();
         AnimationUtils.stop(sprites);
-        AnimationUtils.stop(getAnimation());
     }
-
 
     @Override
     public boolean isRunning() {
-        return AnimationUtils.isRunning(sprites) ||
-                AnimationUtils.isRunning(getAnimation());
+        return AnimationUtils.isRunning(sprites) || super.isRunning();
     }
 
     public abstract Sprite[] onCreateChild();
 
     @Override
-    public ValueAnimator getAnimation() {
+    public ValueAnimator onCreateAnimation() {
         return null;
     }
 }

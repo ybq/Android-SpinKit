@@ -9,7 +9,7 @@ import android.graphics.Paint;
  */
 public class RectSprite extends ShapeSprite {
     @Override
-    public ValueAnimator getAnimation() {
+    public ValueAnimator onCreateAnimation() {
         return null;
     }
 

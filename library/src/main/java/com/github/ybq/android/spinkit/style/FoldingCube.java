@@ -3,17 +3,18 @@ package com.github.ybq.android.spinkit.style;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Build;
 import android.view.animation.LinearInterpolator;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.sprite.SpriteGroup;
+import com.github.ybq.android.spinkit.sprite.SpriteContainer;
 
 /**
  * Created by ybq.
  */
-public class FoldingCube extends SpriteGroup {
+public class FoldingCube extends SpriteContainer {
 
     @SuppressWarnings("FieldCanBeLocal")
     private boolean wrapContent = false;
@@ -24,7 +25,12 @@ public class FoldingCube extends SpriteGroup {
                 = new Cube[4];
         for (int i = 0; i < cubes.length; i++) {
             cubes[i] = new Cube();
-            cubes[i].setAnimationDelay(300 * i - 1200);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                cubes[i].setAnimationDelay(300 * i);
+            } else {
+                cubes[i].setAnimationDelay(300 * i - 1200);
+            }
         }
         return cubes;
     }
@@ -76,10 +82,15 @@ public class FoldingCube extends SpriteGroup {
         }
     }
 
-    class Cube extends RectSprite {
+    private class Cube extends RectSprite {
+
+        Cube() {
+            setAlpha(0);
+            setRotateX(-180);
+        }
 
         @Override
-        public ValueAnimator getAnimation() {
+        public ValueAnimator onCreateAnimation() {
             float fractions[] = new float[]{0f, 0.1f, 0.25f, 0.75f, 0.9f, 1f};
             return new SpriteAnimatorBuilder(this).
                     alpha(fractions, 0, 0, 255, 255, 0, 0).
@@ -89,6 +100,5 @@ public class FoldingCube extends SpriteGroup {
                     interpolator(new LinearInterpolator())
                     .build();
         }
-
     }
 }

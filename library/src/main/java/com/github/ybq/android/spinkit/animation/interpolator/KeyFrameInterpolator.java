@@ -18,8 +18,17 @@ public class KeyFrameInterpolator implements Interpolator {
         return interpolator;
     }
 
-    public KeyFrameInterpolator(TimeInterpolator interpolator) {
+    public static KeyFrameInterpolator pathInterpolator(float controlX1, float controlY1,
+                                                        float controlX2, float controlY2,
+                                                        float... fractions) {
+        KeyFrameInterpolator interpolator = new KeyFrameInterpolator(PathInterpolatorCompat.create(controlX1, controlY1, controlX2, controlY2));
+        interpolator.setFractions(fractions);
+        return interpolator;
+    }
+
+    public KeyFrameInterpolator(TimeInterpolator interpolator, float... fractions) {
         this.interpolator = interpolator;
+        this.fractions = fractions;
     }
 
     public void setFractions(float... fractions) {
@@ -33,7 +42,7 @@ public class KeyFrameInterpolator implements Interpolator {
                 float start = fractions[i];
                 float end = fractions[i + 1];
                 float duration = end - start;
-                if (input > start && input < end) {
+                if (input >= start && input <= end) {
                     input = (input - start) / duration;
                     return start + (interpolator.getInterpolation(input)
                             * duration);

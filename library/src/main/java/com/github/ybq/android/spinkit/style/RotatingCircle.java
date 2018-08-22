@@ -5,22 +5,15 @@ import android.animation.ValueAnimator;
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
 
-/**
- * Created by ybq.
- */
-public class Pulse extends CircleSprite {
-
-    public Pulse() {
-        setScale(0f);
-    }
+public class RotatingCircle extends CircleSprite {
 
     @Override
     public ValueAnimator onCreateAnimation() {
-        float fractions[] = new float[]{0f, 1f};
+        float fractions[] = new float[]{0f, 0.5f, 1f};
         return new SpriteAnimatorBuilder(this).
-                scale(fractions, 0f, 1f).
-                alpha(fractions, 255, 0).
-                duration(1000).
+                rotateX(fractions, 0, -180, -180).
+                rotateY(fractions, 0, 0, -180).
+                duration(1200).
                 easeInOut(fractions)
                 .build();
     }

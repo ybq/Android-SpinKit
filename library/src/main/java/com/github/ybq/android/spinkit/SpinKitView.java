@@ -7,20 +7,10 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ProgressBar;
 
-import com.github.ybq.android.library.R;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.style.ChasingDots;
-import com.github.ybq.android.spinkit.style.Circle;
-import com.github.ybq.android.spinkit.style.CubeGrid;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.FadingCircle;
-import com.github.ybq.android.spinkit.style.FoldingCube;
-import com.github.ybq.android.spinkit.style.Pulse;
-import com.github.ybq.android.spinkit.style.RotatingPlane;
-import com.github.ybq.android.spinkit.style.ThreeBounce;
-import com.github.ybq.android.spinkit.style.WanderingCubes;
 
 /**
  * Created by ybq.
@@ -37,7 +27,6 @@ public class SpinKitView extends ProgressBar {
 
     public SpinKitView(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.SpinKitViewStyle);
-
     }
 
     public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -49,8 +38,7 @@ public class SpinKitView extends ProgressBar {
         super(context, attrs, defStyleAttr, defStyleRes);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr,
                 defStyleRes);
-        mStyle =
-                Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
+        mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
         mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
         a.recycle();
         init();
@@ -58,50 +46,14 @@ public class SpinKitView extends ProgressBar {
     }
 
     private void init() {
-        switch (mStyle) {
-            case ROTATING_PLANE:
-                setIndeterminateDrawable(new RotatingPlane());
-                break;
-            case DOUBLE_BOUNCE:
-                setIndeterminateDrawable(new DoubleBounce());
-                break;
-            case WAVE:
-                setIndeterminateDrawable(new RotatingPlane());
-                break;
-            case WANDERING_CUBES:
-                setIndeterminateDrawable(new WanderingCubes());
-                break;
-            case PULSE:
-                setIndeterminateDrawable(new Pulse());
-                break;
-            case CHASING_DOTS:
-                setIndeterminateDrawable(new ChasingDots());
-                break;
-            case THREE_BOUNCE:
-                setIndeterminateDrawable(new ThreeBounce());
-                break;
-            case CIRCLE:
-                setIndeterminateDrawable(new Circle());
-                break;
-            case CUBE_GRID:
-                setIndeterminateDrawable(new CubeGrid());
-                break;
-            case FADING_CIRCLE:
-                setIndeterminateDrawable(new FadingCircle());
-                break;
-            case FOLDING_CUBE:
-                setIndeterminateDrawable(new FoldingCube());
-                break;
-            default:
-                break;
-        }
+        Sprite sprite = SpriteFactory.create(mStyle);
+        setIndeterminateDrawable(sprite);
     }
 
     @Override
     public void setIndeterminateDrawable(Drawable d) {
-        super.setIndeterminateDrawable(d);
         if (!(d instanceof Sprite)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("this d must be instanceof Sprite");
         }
         setIndeterminateDrawable((Sprite) d);
     }
@@ -109,7 +61,13 @@ public class SpinKitView extends ProgressBar {
     public void setIndeterminateDrawable(Sprite d) {
         super.setIndeterminateDrawable(d);
         mSprite = d;
-        mSprite.setColor(mColor);
+        if (mSprite.getColor() == 0) {
+            mSprite.setColor(mColor);
+        }
+        onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
+        if (getVisibility() == VISIBLE) {
+            mSprite.start();
+        }
     }
 
     @Override
@@ -117,8 +75,40 @@ public class SpinKitView extends ProgressBar {
         return mSprite;
     }
 
-    @Override
-    public void setIndeterminateDrawableTiled(Drawable d) {
-        super.setIndeterminateDrawableTiled(d);
+    public void setColor(int color) {
+        this.mColor = color;
+        if (mSprite != null) {
+            mSprite.setColor(color);
+        }
+        invalidate();
     }
+
+    @Override
+    public void unscheduleDrawable(Drawable who) {
+        super.unscheduleDrawable(who);
+        if (who instanceof Sprite) {
+            ((Sprite) who).stop();
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (hasWindowFocus) {
+            if (mSprite != null && getVisibility() == VISIBLE) {
+                mSprite.start();
+            }
+        }
+    }
+
+    @Override
+    public void onScreenStateChanged(int screenState) {
+        super.onScreenStateChanged(screenState);
+        if (screenState == View.SCREEN_STATE_OFF) {
+            if (mSprite != null) {
+                mSprite.stop();
+            }
+        }
+    }
+
 }
