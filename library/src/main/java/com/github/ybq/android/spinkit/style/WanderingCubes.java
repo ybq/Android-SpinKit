@@ -1,7 +1,6 @@
 package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Build;
 
