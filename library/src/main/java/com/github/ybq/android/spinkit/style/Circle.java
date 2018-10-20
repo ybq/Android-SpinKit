@@ -4,8 +4,8 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
-import com.github.ybq.android.spinkit.sprite.CircleSprite;
 import com.github.ybq.android.spinkit.sprite.CircleLayoutContainer;
+import com.github.ybq.android.spinkit.sprite.CircleSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**
