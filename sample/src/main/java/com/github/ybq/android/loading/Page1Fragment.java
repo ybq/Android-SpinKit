@@ -2,10 +2,6 @@ package com.github.ybq.android.loading;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +10,11 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.github.ybq.android.spinkit.SpriteFactory;
 import com.github.ybq.android.spinkit.Style;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.style.ChasingDots;
-import com.github.ybq.android.spinkit.style.Circle;
-import com.github.ybq.android.spinkit.style.CubeGrid;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.FadingCircle;
-import com.github.ybq.android.spinkit.style.FoldingCube;
-import com.github.ybq.android.spinkit.style.MultiplePulse;
-import com.github.ybq.android.spinkit.style.MultiplePulseRing;
-import com.github.ybq.android.spinkit.style.Pulse;
-import com.github.ybq.android.spinkit.style.PulseRing;
-import com.github.ybq.android.spinkit.style.RotatingCircle;
-import com.github.ybq.android.spinkit.style.RotatingPlane;
-import com.github.ybq.android.spinkit.style.ThreeBounce;
-import com.github.ybq.android.spinkit.style.WanderingCubes;
-import com.github.ybq.android.spinkit.style.Wave;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by ybq.

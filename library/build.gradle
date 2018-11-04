@@ -1,12 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.firetrap'
+
+group = 'com.github.ybq'
+
 version = '1.0'
+
 android {
-    compileSdkVersion 27
+
+    compileSdkVersion 28
     buildToolsVersion '26.0.2'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
     }
 }

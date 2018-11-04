@@ -8,7 +8,6 @@ import android.util.Property;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 
-
 import com.github.ybq.android.spinkit.animation.interpolator.KeyFrameInterpolator;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
