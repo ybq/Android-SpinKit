@@ -47,6 +47,7 @@ public class SpinKitView extends ProgressBar {
 
     private void init() {
         Sprite sprite = SpriteFactory.create(mStyle);
+        sprite.setColor(mColor);
         setIndeterminateDrawable(sprite);
     }
 
@@ -62,10 +63,12 @@ public class SpinKitView extends ProgressBar {
         super.setIndeterminateDrawable(d);
         mSprite = d;
         if (mSprite.getColor() == 0) {
+
             mSprite.setColor(mColor);
         }
         onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
         if (getVisibility() == VISIBLE) {
+
             mSprite.start();
         }
     }
@@ -78,6 +81,7 @@ public class SpinKitView extends ProgressBar {
     public void setColor(int color) {
         this.mColor = color;
         if (mSprite != null) {
+
             mSprite.setColor(color);
         }
         invalidate();
@@ -87,6 +91,7 @@ public class SpinKitView extends ProgressBar {
     public void unscheduleDrawable(Drawable who) {
         super.unscheduleDrawable(who);
         if (who instanceof Sprite) {
+
             ((Sprite) who).stop();
         }
     }
@@ -96,6 +101,7 @@ public class SpinKitView extends ProgressBar {
         super.onWindowFocusChanged(hasWindowFocus);
         if (hasWindowFocus) {
             if (mSprite != null && getVisibility() == VISIBLE) {
+
                 mSprite.start();
             }
         }
@@ -105,10 +111,11 @@ public class SpinKitView extends ProgressBar {
     public void onScreenStateChanged(int screenState) {
         super.onScreenStateChanged(screenState);
         if (screenState == View.SCREEN_STATE_OFF) {
+
             if (mSprite != null) {
+
                 mSprite.stop();
             }
         }
     }
-
 }
