@@ -12,22 +12,11 @@
 
 ## Gradle 依赖
 
-  1. 在项目根目录的build.gradle添加
-
- ```gradle
-allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
-	}
-```
-
   2. 添加依赖
 
  ``` gradle
 dependencies {
-    compile 'com.github.ybq:Android-SpinKit:1.0.5'
+    compile 'com.github.ybq:Android-SpinKit:1.2.0'
  }
 ```
 
