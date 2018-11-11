@@ -38,7 +38,7 @@ public class Page1Fragment extends Fragment implements Colors {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4);
-        layoutManager.setOrientation(GridLayoutManager.VERTICAL);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(new RecyclerView.Adapter<Holder>() {

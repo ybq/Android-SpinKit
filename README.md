@@ -9,26 +9,11 @@
 
 ## Gradle Dependency
 
-  1. Add the JitPack repository to your build file
-
-```gradle
-	allprojects {
-				repositories {
-					...
-					maven { url "https://jitpack.io" }
-				}
-	}
-```
-
-  2. Add the dependency
-
  ``` gradle
 dependencies {
-
-    implementation 'com.github.ybq:AndroidSpinKit:v1.0.0'
-
+    implementation 'com.github.ybq:AndroidSpinKit:1.2.0'
  }
-```
+ ```
 
 
 ## Usage
@@ -49,7 +34,7 @@ dependencies {
 
  ```java
 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
-DoubleBounce doubleBounce = new DoubleBounce();
+Sprite doubleBounce = new DoubleBounce();
 progressBar.setIndeterminateDrawable(doubleBounce);
 ```
 

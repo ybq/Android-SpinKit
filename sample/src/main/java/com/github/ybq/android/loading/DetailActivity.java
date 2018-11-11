@@ -20,7 +20,6 @@ import androidx.viewpager.widget.ViewPager;
 
 public class DetailActivity extends AppCompatActivity implements Colors {
 
-    @SuppressWarnings("WeakerAccess")
     public static void start(Context context, int position) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra("position", position);

@@ -18,7 +18,6 @@ import com.github.ybq.android.spinkit.animation.IntProperty;
 /**
  * Created by ybq.
  */
-@SuppressWarnings("WeakerAccess")
 public abstract class Sprite extends Drawable implements
         ValueAnimator.AnimatorUpdateListener
         , Animatable
@@ -65,7 +64,7 @@ public abstract class Sprite extends Drawable implements
 
     @Override
     public int getOpacity() {
-        return PixelFormat.RGBA_8888;
+        return PixelFormat.TRANSLUCENT;
     }
 
     public float getTranslateXPercentage() {
