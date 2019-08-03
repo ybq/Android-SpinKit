@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             String[] titles = new String[]{
-                    "page1", "page2"
+                    "Style", "Widget"
             };
 
             @Override
             public Fragment getItem(int position) {
                 if (position == 0) {
-                    return Page1Fragment.newInstance();
+                    return StyleFragment.newInstance();
                 } else {
-                    return Page2Fragment.newInstance();
+                    return WidgetFragment.newInstance();
                 }
             }
 

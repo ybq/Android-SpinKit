@@ -21,20 +21,20 @@ import androidx.fragment.app.Fragment;
 /**
  * Created by ybq.
  */
-public class Page2Fragment extends Fragment implements Colors {
+public class WidgetFragment extends Fragment implements Colors {
 
     private Wave mWaveDrawable;
     private Circle mCircleDrawable;
     private ChasingDots mChasingDotsDrawable;
 
-    public static Page2Fragment newInstance() {
-        return new Page2Fragment();
+    public static WidgetFragment newInstance() {
+        return new WidgetFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_page2, null);
+        return inflater.inflate(R.layout.fragment_widget, null);
     }
 
     @Override

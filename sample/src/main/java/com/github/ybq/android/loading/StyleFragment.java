@@ -19,10 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by ybq.
  */
-public class Page1Fragment extends Fragment implements Colors {
+public class StyleFragment extends Fragment implements Colors {
 
-    public static Page1Fragment newInstance() {
-        return new Page1Fragment();
+    public static StyleFragment newInstance() {
+        return new StyleFragment();
     }
 
 
@@ -30,7 +30,7 @@ public class Page1Fragment extends Fragment implements Colors {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_page1, null);
+        return inflater.inflate(R.layout.fragment_style, null);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Page1Fragment extends Fragment implements Colors {
         recyclerView.setAdapter(new RecyclerView.Adapter<Holder>() {
             @Override
             public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-                @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, null);
+                @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_style, null);
                 return new Holder(view);
             }
 

@@ -21,7 +21,7 @@ publish {
     userOrg = 'ybq'
     groupId = 'com.github.ybq'
     artifactId = 'Android-SpinKit'
-    publishVersion = '1.2.0'
+    publishVersion = '1.4.0'
     desc = 'Android loading animations'
     website = 'https://github.com/ybq/Android-SpinKit'
     licences = ['MIT']

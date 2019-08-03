@@ -1,7 +1,9 @@
 
 # Android-SpinKit
  
-> Android 加载动画(参照[SpinKit](https://github.com/tobiasahlin/SpinKit)写了个android版本)
+> Android 加载动画([SpinKit](https://tobiasahlin.com/spinkit)的Android版本实现)
+
+[Demo Apk](https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/spinkit.apk)
 
 ## 效果
 
@@ -12,13 +14,12 @@
 
 ## Gradle 依赖
 
-  2. 添加依赖
 
  ``` gradle
 dependencies {
-    compile 'com.github.ybq:Android-SpinKit:1.2.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
  }
-```
+ ```
 
 
 ## 使用

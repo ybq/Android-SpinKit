@@ -36,7 +36,7 @@ public class KeyFrameInterpolator implements Interpolator {
     }
 
     @Override
-    public synchronized float getInterpolation(float input) {
+    public float getInterpolation(float input) {
         if (fractions.length > 1) {
             for (int i = 0; i < fractions.length - 1; i++) {
                 float start = fractions[i];
