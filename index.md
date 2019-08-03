@@ -1,5 +1,7 @@
 # Android-SpinKit
->Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
+>Android loading animations(I wrote a android edition according [SpinKit](https://tobiasahlin.com/spinkit))
+
+[Demo Apk](https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/spinkit.apk)
 
 ## Preview
 
@@ -11,7 +13,7 @@
 
  ``` gradle
 dependencies {
-    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
  }
  ```
 
@@ -71,5 +73,6 @@ RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 
 ## Acknowledgements
 - [SpinKit](https://github.com/tobiasahlin/SpinKit).
+
 
 
