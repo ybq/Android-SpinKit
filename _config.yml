@@ -1,7 +1,7 @@
 title: Android-Spinkit
 description: Android  loading animations
 google_analytics: 
-show_downloads: true
+show_downloads: false
 theme: jekyll-theme-leap-day
 
 gems:
