@@ -9,6 +9,24 @@
 
 <img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen2.gif" width="200px" height="200px"/>
 
+
+## Jitpack
+To get a Git project into your build:
+
+<b>Step 1.</b> Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+
+```dependencyResolutionManagement {
+repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+repositories {
+google()
+mavenCentral()
+maven { url 'https://jitpack.io' }
+}
+}
+```
+
+
 ## Gradle Dependency
 
  ``` gradle
@@ -64,9 +82,6 @@ CubeGrid         | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKi
 FadingCircle     | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/FadingCircle.gif' alt='FadingCircle' width="90px" height="90px"/>
 FoldingCube      | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/FoldingCube.gif' alt='FoldingCube' width="90px" height="90px"/>
 RotatingCircle   | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/RotatingCircle.gif' alt='RotatingCircle' width="90px" height="90px"/>
-
-
-
 
 
 
