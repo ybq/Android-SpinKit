@@ -13,9 +13,7 @@ public abstract class CircleLayoutContainer extends SpriteContainer {
         for (int i = 0; i < getChildCount(); i++) {
             Sprite sprite = getChildAt(i);
             int count = canvas.save();
-            canvas.rotate(i * 360 / getChildCount(),
-                    getBounds().centerX(),
-                    getBounds().centerY());
+            canvas.rotate(i * 360 / getChildCount(), getBounds().centerX(), getBounds().centerY());
             sprite.draw(canvas);
             canvas.restoreToCount(count);
         }

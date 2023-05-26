@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
  * Created by ybq.
  */
 public class SquareFrameLayout extends FrameLayout {
+
     public SquareFrameLayout(Context context) {
         super(context);
     }

@@ -10,11 +10,7 @@ public class MultiplePulseRing extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
-        return new Sprite[]{
-                new PulseRing(),
-                new PulseRing(),
-                new PulseRing(),
-        };
+        return new Sprite[] { new PulseRing(), new PulseRing(), new PulseRing() };
     }
 
     @Override

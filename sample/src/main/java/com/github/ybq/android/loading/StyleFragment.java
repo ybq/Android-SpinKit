@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.github.ybq.android.spinkit.SpriteFactory;
 import com.github.ybq.android.spinkit.Style;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,7 +22,6 @@ public class StyleFragment extends Fragment implements Colors {
     public static StyleFragment newInstance() {
         return new StyleFragment();
     }
-
 
     @SuppressLint("InflateParams")
     @Nullable
@@ -40,11 +37,12 @@ public class StyleFragment extends Fragment implements Colors {
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-
         recyclerView.setAdapter(new RecyclerView.Adapter<Holder>() {
+
             @Override
             public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-                @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_style, null);
+                @SuppressLint("InflateParams")
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_style, null);
                 return new Holder(view);
             }
 
@@ -73,6 +71,7 @@ public class StyleFragment extends Fragment implements Colors {
             itemView.setBackgroundColor(colors[position % colors.length]);
             final int finalPosition = position;
             itemView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
                     DetailActivity.start(v.getContext(), finalPosition);
@@ -84,5 +83,4 @@ public class StyleFragment extends Fragment implements Colors {
             spinKitView.setIndeterminateDrawable(drawable);
         }
     }
-
 }

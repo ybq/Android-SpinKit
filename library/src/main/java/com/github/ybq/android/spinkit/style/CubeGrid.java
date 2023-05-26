@@ -2,7 +2,6 @@ package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
-
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -15,11 +14,7 @@ public class CubeGrid extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
-        int delays[] = new int[]{
-                200, 300, 400
-                , 100, 200, 300
-                , 0, 100, 200
-        };
+        int[] delays = new int[] { 200, 300, 400, 100, 200, 300, 0, 100, 200 };
         GridItem[] gridItems = new GridItem[9];
         for (int i = 0; i < gridItems.length; i++) {
             gridItems[i] = new GridItem();
@@ -45,14 +40,11 @@ public class CubeGrid extends SpriteContainer {
     }
 
     private class GridItem extends RectSprite {
+
         @Override
         public ValueAnimator onCreateAnimation() {
-            float fractions[] = new float[]{0f, 0.35f, 0.7f, 1f};
-            return new SpriteAnimatorBuilder(this).
-                    scale(fractions, 1f, 0f, 1f, 1f).
-                    duration(1300).
-                    easeInOut(fractions)
-                    .build();
+            float[] fractions = new float[] { 0f, 0.35f, 0.7f, 1f };
+            return new SpriteAnimatorBuilder(this).scale(fractions, 1f, 0f, 1f, 1f).duration(1300).easeInOut(fractions).build();
         }
     }
 }

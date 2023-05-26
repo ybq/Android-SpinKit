@@ -3,7 +3,6 @@ package com.github.ybq.android.spinkit.style;
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.os.Build;
-
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -24,7 +23,6 @@ public class Wave extends SpriteContainer {
             } else {
                 waveItems[i].setAnimationDelay(-1200 + i * 100);
             }
-
         }
         return waveItems;
     }
@@ -51,11 +49,8 @@ public class Wave extends SpriteContainer {
 
         @Override
         public ValueAnimator onCreateAnimation() {
-            float fractions[] = new float[]{0f, 0.2f, 0.4f, 1f};
-            return new SpriteAnimatorBuilder(this).scaleY(fractions, 0.4f, 1f, 0.4f, 0.4f).
-                    duration(1200).
-                    easeInOut(fractions)
-                    .build();
+            float[] fractions = new float[] { 0f, 0.2f, 0.4f, 1f };
+            return new SpriteAnimatorBuilder(this).scaleY(fractions, 0.4f, 1f, 0.4f, 0.4f).duration(1200).easeInOut(fractions).build();
         }
     }
 }

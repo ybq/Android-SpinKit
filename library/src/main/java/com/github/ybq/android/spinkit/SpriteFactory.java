@@ -24,7 +24,7 @@ public class SpriteFactory {
 
     public static Sprite create(Style style) {
         Sprite sprite = null;
-        switch (style) {
+        switch(style) {
             case ROTATING_PLANE:
                 sprite = new RotatingPlane();
                 break;
