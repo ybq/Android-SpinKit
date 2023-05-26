@@ -3,7 +3,6 @@ package com.github.ybq.android.spinkit.sprite;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-
 import com.github.ybq.android.spinkit.animation.AnimationUtils;
 
 /**
@@ -30,7 +29,6 @@ public abstract class SpriteContainer extends Sprite {
     }
 
     public void onChildCreated(Sprite... sprites) {
-
     }
 
     public int getChildCount() {

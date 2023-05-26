@@ -42,5 +42,4 @@ public abstract class FloatProperty<T> extends Property<T, Float> {
     final public void set(T object, Float value) {
         setValue(object, value);
     }
-
 }

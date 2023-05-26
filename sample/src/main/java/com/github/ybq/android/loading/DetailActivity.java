@@ -8,12 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.github.ybq.android.spinkit.SpriteFactory;
 import com.github.ybq.android.spinkit.Style;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -33,6 +31,7 @@ public class DetailActivity extends AppCompatActivity implements Colors {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setOffscreenPageLimit(0);
         viewPager.setAdapter(new PagerAdapter() {
+
             @Override
             public int getCount() {
                 return Style.values().length;
@@ -45,8 +44,8 @@ public class DetailActivity extends AppCompatActivity implements Colors {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                @SuppressLint("InflateParams") View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager, null);
-
+                @SuppressLint("InflateParams")
+                View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_pager, null);
                 SpinKitView spinKitView = (SpinKitView) view.findViewById(R.id.spin_kit);
                 TextView name = (TextView) view.findViewById(R.id.name);
                 Style style = Style.values()[position];
@@ -54,7 +53,6 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                 Sprite drawable = SpriteFactory.create(style);
                 spinKitView.setIndeterminateDrawable(drawable);
                 container.addView(view);
-
                 return view;
             }
 
@@ -63,13 +61,11 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                 container.removeView((View) object);
             }
         });
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                int color = (int) ArgbEvaluator.getInstance().evaluate(positionOffset,
-                        colors[position % colors.length],
-                        colors[(position + 1) % colors.length]);
+                int color = (int) ArgbEvaluator.getInstance().evaluate(positionOffset, colors[position % colors.length], colors[(position + 1) % colors.length]);
                 getWindow().getDecorView().setBackgroundColor(color);
             }
 
@@ -80,10 +76,8 @@ public class DetailActivity extends AppCompatActivity implements Colors {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
-
         viewPager.setCurrentItem(getIntent().getIntExtra("position", 0));
     }
 }

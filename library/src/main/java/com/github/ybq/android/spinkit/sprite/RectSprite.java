@@ -8,6 +8,7 @@ import android.graphics.Paint;
  * Created by ybq.
  */
 public class RectSprite extends ShapeSprite {
+
     @Override
     public ValueAnimator onCreateAnimation() {
         return null;

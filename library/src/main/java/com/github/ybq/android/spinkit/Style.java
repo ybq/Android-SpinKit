@@ -21,7 +21,7 @@ public enum Style {
     PULSE_RING(13),
     MULTIPLE_PULSE_RING(14);
 
-    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    @SuppressWarnings({ "FieldCanBeLocal", "unused" })
     private int value;
 
     Style(int value) {

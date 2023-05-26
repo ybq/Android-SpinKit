@@ -7,10 +7,8 @@ import android.util.Log;
 import android.util.Property;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
-
 import com.github.ybq.android.spinkit.animation.interpolator.KeyFrameInterpolator;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -21,15 +19,21 @@ import java.util.Map;
 public class SpriteAnimatorBuilder {
 
     private static final String TAG = "SpriteAnimatorBuilder";
+
     private Sprite sprite;
+
     private Interpolator interpolator;
+
     private int repeatCount = Animation.INFINITE;
+
     private long duration = 2000;
+
     private int startFrame = 0;
+
     private Map<String, FrameData> fds = new HashMap<>();
 
-
     class FrameData<T> {
+
         public FrameData(float[] fractions, Property property, T[] values) {
             this.fractions = fractions;
             this.property = property;
@@ -37,7 +41,9 @@ public class SpriteAnimatorBuilder {
         }
 
         float[] fractions;
+
         Property property;
+
         T[] values;
     }
 
@@ -59,57 +65,55 @@ public class SpriteAnimatorBuilder {
         this.sprite = sprite;
     }
 
-    public SpriteAnimatorBuilder scale(float fractions[], Float... scale) {
+    public SpriteAnimatorBuilder scale(float[] fractions, Float... scale) {
         holder(fractions, Sprite.SCALE, scale);
         return this;
     }
 
-    public SpriteAnimatorBuilder alpha(float fractions[], Integer... alpha) {
+    public SpriteAnimatorBuilder alpha(float[] fractions, Integer... alpha) {
         holder(fractions, Sprite.ALPHA, alpha);
         return this;
     }
 
     @SuppressWarnings("unused")
-    public SpriteAnimatorBuilder scaleX(float fractions[], Float... scaleX) {
+    public SpriteAnimatorBuilder scaleX(float[] fractions, Float... scaleX) {
         holder(fractions, Sprite.SCALE, scaleX);
         return this;
     }
 
-    public SpriteAnimatorBuilder scaleY(float fractions[], Float... scaleY) {
+    public SpriteAnimatorBuilder scaleY(float[] fractions, Float... scaleY) {
         holder(fractions, Sprite.SCALE_Y, scaleY);
         return this;
     }
 
-    public SpriteAnimatorBuilder rotateX(float fractions[], Integer... rotateX) {
+    public SpriteAnimatorBuilder rotateX(float[] fractions, Integer... rotateX) {
         holder(fractions, Sprite.ROTATE_X, rotateX);
         return this;
     }
 
-    public SpriteAnimatorBuilder rotateY(float fractions[], Integer... rotateY) {
+    public SpriteAnimatorBuilder rotateY(float[] fractions, Integer... rotateY) {
         holder(fractions, Sprite.ROTATE_Y, rotateY);
         return this;
     }
 
     @SuppressWarnings("unused")
-    public SpriteAnimatorBuilder translateX(float fractions[], Integer... translateX) {
+    public SpriteAnimatorBuilder translateX(float[] fractions, Integer... translateX) {
         holder(fractions, Sprite.TRANSLATE_X, translateX);
         return this;
     }
 
-
     @SuppressWarnings("unused")
-    public SpriteAnimatorBuilder translateY(float fractions[], Integer... translateY) {
+    public SpriteAnimatorBuilder translateY(float[] fractions, Integer... translateY) {
         holder(fractions, Sprite.TRANSLATE_Y, translateY);
         return this;
     }
 
-
-    public SpriteAnimatorBuilder rotate(float fractions[], Integer... rotate) {
+    public SpriteAnimatorBuilder rotate(float[] fractions, Integer... rotate) {
         holder(fractions, Sprite.ROTATE, rotate);
         return this;
     }
 
-    public SpriteAnimatorBuilder translateXPercentage(float fractions[], Float... translateXPercentage) {
+    public SpriteAnimatorBuilder translateXPercentage(float[] fractions, Float... translateXPercentage) {
         holder(fractions, Sprite.TRANSLATE_X_PERCENTAGE, translateXPercentage);
         return this;
     }
@@ -124,7 +128,6 @@ public class SpriteAnimatorBuilder {
         fds.put(property.getName(), new FloatFrameData(fractions, property, values));
     }
 
-
     private void holder(float[] fractions, Property property, Integer[] values) {
         ensurePair(fractions.length, values.length);
         fds.put(property.getName(), new IntFrameData(fractions, property, values));
@@ -132,15 +135,9 @@ public class SpriteAnimatorBuilder {
 
     private void ensurePair(int fractionsLength, int valuesLength) {
         if (fractionsLength != valuesLength) {
-            throw new IllegalStateException(String.format(
-                    Locale.getDefault(),
-                    "The fractions.length must equal values.length, " +
-                            "fraction.length[%d], values.length[%d]",
-                    fractionsLength,
-                    valuesLength));
+            throw new IllegalStateException(String.format(Locale.getDefault(), "The fractions.length must equal values.length, " + "fraction.length[%d], values.length[%d]", fractionsLength, valuesLength));
         }
     }
-
 
     public SpriteAnimatorBuilder interpolator(Interpolator interpolator) {
         this.interpolator = interpolator;
@@ -148,12 +145,9 @@ public class SpriteAnimatorBuilder {
     }
 
     public SpriteAnimatorBuilder easeInOut(float... fractions) {
-        interpolator(KeyFrameInterpolator.easeInOut(
-                fractions
-        ));
+        interpolator(KeyFrameInterpolator.easeInOut(fractions));
         return this;
     }
-
 
     public SpriteAnimatorBuilder duration(long duration) {
         this.duration = duration;
@@ -176,7 +170,6 @@ public class SpriteAnimatorBuilder {
     }
 
     public ObjectAnimator build() {
-
         PropertyValuesHolder[] holders = new PropertyValuesHolder[fds.size()];
         int i = 0;
         for (Map.Entry<String, FrameData> fd : fds.entrySet()) {
@@ -202,13 +195,10 @@ public class SpriteAnimatorBuilder {
             holders[i] = PropertyValuesHolder.ofKeyframe(data.property, keyframes);
             i++;
         }
-
-        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(sprite,
-                holders);
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(sprite, holders);
         animator.setDuration(duration);
         animator.setRepeatCount(repeatCount);
         animator.setInterpolator(interpolator);
         return animator;
     }
-
 }
