@@ -30,22 +30,19 @@ class PathInterpolatorDonut implements Interpolator {
     private static final float PRECISION = 0.002f;
 
     private final float[] mX;
+
     private final float[] mY;
 
     public PathInterpolatorDonut(Path path) {
-        final PathMeasure pathMeasure = new PathMeasure(path, false /* forceClosed */);
-
+        final PathMeasure pathMeasure = new PathMeasure(path, false);
         final float pathLength = pathMeasure.getLength();
         final int numPoints = (int) (pathLength / PRECISION) + 1;
-
         mX = new float[numPoints];
         mY = new float[numPoints];
-
         final float[] position = new float[2];
         for (int i = 0; i < numPoints; ++i) {
             final float distance = (i * pathLength) / (numPoints - 1);
-            pathMeasure.getPosTan(distance, position, null /* tangent */);
-
+            pathMeasure.getPosTan(distance, position, null);
             mX[i] = position[0];
             mY[i] = position[1];
         }
@@ -55,8 +52,7 @@ class PathInterpolatorDonut implements Interpolator {
         this(createQuad(controlX, controlY));
     }
 
-    public PathInterpolatorDonut(float controlX1, float controlY1,
-                                 float controlX2, float controlY2) {
+    public PathInterpolatorDonut(float controlX1, float controlY1, float controlX2, float controlY2) {
         this(createCubic(controlX1, controlY1, controlX2, controlY2));
     }
 
@@ -67,7 +63,6 @@ class PathInterpolatorDonut implements Interpolator {
         } else if (t >= 1.0f) {
             return 1.0f;
         }
-
         // Do a binary search for the correct x to interpolate between.
         int startIndex = 0;
         int endIndex = mX.length - 1;
@@ -79,18 +74,14 @@ class PathInterpolatorDonut implements Interpolator {
                 startIndex = midIndex;
             }
         }
-
         final float xRange = mX[endIndex] - mX[startIndex];
         if (xRange == 0) {
             return mY[startIndex];
         }
-
         final float tInRange = t - mX[startIndex];
         final float fraction = tInRange / xRange;
-
         final float startY = mY[startIndex];
         final float endY = mY[endIndex];
-
         return startY + (fraction * (endY - startY));
     }
 
@@ -101,8 +92,7 @@ class PathInterpolatorDonut implements Interpolator {
         return path;
     }
 
-    private static Path createCubic(float controlX1, float controlY1,
-                                    float controlX2, float controlY2) {
+    private static Path createCubic(float controlX1, float controlY1, float controlX2, float controlY2) {
         final Path path = new Path();
         path.moveTo(0.0f, 0.0f);
         path.cubicTo(controlX1, controlY1, controlX2, controlY2, 1.0f, 1.0f);

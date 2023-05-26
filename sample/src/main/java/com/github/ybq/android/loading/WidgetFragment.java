@@ -9,12 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.github.ybq.android.spinkit.style.ChasingDots;
 import com.github.ybq.android.spinkit.style.Circle;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.Wave;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -24,7 +22,9 @@ import androidx.fragment.app.Fragment;
 public class WidgetFragment extends Fragment implements Colors {
 
     private Wave mWaveDrawable;
+
     private Circle mCircleDrawable;
+
     private ChasingDots mChasingDotsDrawable;
 
     public static WidgetFragment newInstance() {
@@ -40,14 +40,12 @@ public class WidgetFragment extends Fragment implements Colors {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         //ProgressBar
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress);
         DoubleBounce doubleBounce = new DoubleBounce();
         doubleBounce.setBounds(0, 0, 100, 100);
         doubleBounce.setColor(colors[7]);
         progressBar.setIndeterminateDrawable(doubleBounce);
-
         //Button
         Button button = (Button) view.findViewById(R.id.button);
         mWaveDrawable = new Wave();
@@ -55,7 +53,6 @@ public class WidgetFragment extends Fragment implements Colors {
         //noinspection deprecation
         mWaveDrawable.setColor(getResources().getColor(R.color.colorAccent));
         button.setCompoundDrawables(mWaveDrawable, null, null, null);
-
         //TextView
         TextView textView = (TextView) view.findViewById(R.id.text);
         mCircleDrawable = new Circle();
@@ -63,7 +60,6 @@ public class WidgetFragment extends Fragment implements Colors {
         mCircleDrawable.setColor(Color.WHITE);
         textView.setCompoundDrawables(null, null, mCircleDrawable, null);
         textView.setBackgroundColor(colors[2]);
-
         //ImageView
         ImageView imageView = (ImageView) view.findViewById(R.id.image);
         mChasingDotsDrawable = new ChasingDots();

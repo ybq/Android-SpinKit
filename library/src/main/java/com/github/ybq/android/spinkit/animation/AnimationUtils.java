@@ -2,7 +2,6 @@ package com.github.ybq.android.spinkit.animation;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**

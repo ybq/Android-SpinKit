@@ -9,7 +9,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
-
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
 /**
@@ -18,7 +17,9 @@ import com.github.ybq.android.spinkit.sprite.Sprite;
 public class SpinKitView extends ProgressBar {
 
     private Style mStyle;
+
     private int mColor;
+
     private Sprite mSprite;
 
     public SpinKitView(Context context) {
@@ -36,8 +37,7 @@ public class SpinKitView extends ProgressBar {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr,
-                defStyleRes);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr, defStyleRes);
         mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
         mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
         a.recycle();
@@ -63,12 +63,10 @@ public class SpinKitView extends ProgressBar {
         super.setIndeterminateDrawable(d);
         mSprite = d;
         if (mSprite.getColor() == 0) {
-
             mSprite.setColor(mColor);
         }
         onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
         if (getVisibility() == VISIBLE) {
-
             mSprite.start();
         }
     }
@@ -81,7 +79,6 @@ public class SpinKitView extends ProgressBar {
     public void setColor(int color) {
         this.mColor = color;
         if (mSprite != null) {
-
             mSprite.setColor(color);
         }
         invalidate();
@@ -91,7 +88,6 @@ public class SpinKitView extends ProgressBar {
     public void unscheduleDrawable(Drawable who) {
         super.unscheduleDrawable(who);
         if (who instanceof Sprite) {
-
             ((Sprite) who).stop();
         }
     }
@@ -101,7 +97,6 @@ public class SpinKitView extends ProgressBar {
         super.onWindowFocusChanged(hasWindowFocus);
         if (hasWindowFocus) {
             if (mSprite != null && getVisibility() == VISIBLE) {
-
                 mSprite.start();
             }
         }
@@ -111,9 +106,7 @@ public class SpinKitView extends ProgressBar {
     public void onScreenStateChanged(int screenState) {
         super.onScreenStateChanged(screenState);
         if (screenState == View.SCREEN_STATE_OFF) {
-
             if (mSprite != null) {
-
                 mSprite.stop();
             }
         }
