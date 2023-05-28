@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2010 The Android Open Source Project
  *
@@ -14,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.github.ybq.android.loading;
 
 import android.animation.TypeEvaluator;
@@ -24,6 +22,7 @@ import android.animation.TypeEvaluator;
  * values that represent ARGB colors.
  */
 public class ArgbEvaluator implements TypeEvaluator {
+
     private static final ArgbEvaluator sInstance = new ArgbEvaluator();
 
     /**
@@ -64,9 +63,6 @@ public class ArgbEvaluator implements TypeEvaluator {
         int endR = (endInt >> 16) & 0xff;
         int endG = (endInt >> 8) & 0xff;
         int endB = endInt & 0xff;
-        return (startA + (int) (fraction * (endA - startA))) << 24 |
-                (startR + (int) (fraction * (endR - startR))) << 16 |
-                (startG + (int) (fraction * (endG - startG))) << 8 |
-                (startB + (int) (fraction * (endB - startB)));
+        return (startA + (int) (fraction * (endA - startA))) << 24 | (startR + (int) (fraction * (endR - startR))) << 16 | (startG + (int) (fraction * (endG - startG))) << 8 | (startB + (int) (fraction * (endB - startB)));
     }
 }

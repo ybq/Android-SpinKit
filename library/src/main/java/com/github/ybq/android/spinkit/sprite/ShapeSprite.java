@@ -11,7 +11,9 @@ import android.graphics.Paint;
 public abstract class ShapeSprite extends Sprite {
 
     private Paint mPaint;
+
     private int mUseColor;
+
     private int mBaseColor;
 
     public ShapeSprite() {

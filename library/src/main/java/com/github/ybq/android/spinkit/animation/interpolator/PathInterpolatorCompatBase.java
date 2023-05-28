@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.github.ybq.android.spinkit.animation.interpolator;
 
 import android.graphics.Path;
@@ -36,8 +35,7 @@ class PathInterpolatorCompatBase {
         return new PathInterpolatorDonut(controlX, controlY);
     }
 
-    public static Interpolator create(float controlX1, float controlY1,
-                                      float controlX2, float controlY2) {
+    public static Interpolator create(float controlX1, float controlY1, float controlX2, float controlY2) {
         return new PathInterpolatorDonut(controlX1, controlY1, controlX2, controlY2);
     }
 }

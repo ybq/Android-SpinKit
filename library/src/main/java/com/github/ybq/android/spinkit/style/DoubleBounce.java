@@ -2,7 +2,6 @@ package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
 import android.os.Build;
-
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -15,9 +14,7 @@ public class DoubleBounce extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
-        return new Sprite[]{
-                new Bounce(), new Bounce()
-        };
+        return new Sprite[] { new Bounce(), new Bounce() };
     }
 
     @Override
@@ -39,11 +36,8 @@ public class DoubleBounce extends SpriteContainer {
 
         @Override
         public ValueAnimator onCreateAnimation() {
-            float fractions[] = new float[]{0f, 0.5f, 1f};
-            return new SpriteAnimatorBuilder(this).scale(fractions, 0f, 1f, 0f).
-                    duration(2000).
-                    easeInOut(fractions)
-                    .build();
+            float[] fractions = new float[] { 0f, 0.5f, 1f };
+            return new SpriteAnimatorBuilder(this).scale(fractions, 0f, 1f, 0f).duration(2000).easeInOut(fractions).build();
         }
     }
 }

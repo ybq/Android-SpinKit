@@ -3,7 +3,6 @@ package com.github.ybq.android.spinkit.style;
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.os.Build;
-
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.RectSprite;
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -16,10 +15,7 @@ public class WanderingCubes extends SpriteContainer {
 
     @Override
     public Sprite[] onCreateChild() {
-        return new Sprite[]{
-                new Cube(0),
-                new Cube(3)
-        };
+        return new Sprite[] { new Cube(0), new Cube(3) };
     }
 
     @Override
@@ -36,16 +32,12 @@ public class WanderingCubes extends SpriteContainer {
         super.onBoundsChange(bounds);
         for (int i = 0; i < getChildCount(); i++) {
             Sprite sprite = getChildAt(i);
-            sprite.setDrawBounds(
-                    bounds.left,
-                    bounds.top,
-                    bounds.left + bounds.width() / 4,
-                    bounds.top + bounds.height() / 4
-            );
+            sprite.setDrawBounds(bounds.left, bounds.top, bounds.left + bounds.width() / 4, bounds.top + bounds.height() / 4);
         }
     }
 
     private class Cube extends RectSprite {
+
         int startFrame;
 
         public Cube(int startFrame) {
@@ -54,17 +46,10 @@ public class WanderingCubes extends SpriteContainer {
 
         @Override
         public ValueAnimator onCreateAnimation() {
-            float fractions[] = new float[]{0f, 0.25f, 0.5f, 0.51f, 0.75f, 1f};
-            SpriteAnimatorBuilder builder = new SpriteAnimatorBuilder(this).
-                    rotate(fractions, 0, -90, -179, -180, -270, -360).
-                    translateXPercentage(fractions, 0f, 0.75f, 0.75f, 0.75f, 0f, 0f).
-                    translateYPercentage(fractions, 0f, 0f, 0.75f, 0.75f, 0.75f, 0f).
-                    scale(fractions, 1f, 0.5f, 1f, 1f, 0.5f, 1f).
-                    duration(1800).
-                    easeInOut(fractions);
+            float[] fractions = new float[] { 0f, 0.25f, 0.5f, 0.51f, 0.75f, 1f };
+            SpriteAnimatorBuilder builder = new SpriteAnimatorBuilder(this).rotate(fractions, 0, -90, -179, -180, -270, -360).translateXPercentage(fractions, 0f, 0.75f, 0.75f, 0.75f, 0f, 0f).translateYPercentage(fractions, 0f, 0f, 0.75f, 0.75f, 0.75f, 0f).scale(fractions, 1f, 0.5f, 1f, 1f, 0.5f, 1f).duration(1800).easeInOut(fractions);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                builder.
-                        startFrame(startFrame);
+                builder.startFrame(startFrame);
             }
             return builder.build();
         }

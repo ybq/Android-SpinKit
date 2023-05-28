@@ -18,9 +18,7 @@ public class CircleSprite extends ShapeSprite {
     public void drawShape(Canvas canvas, Paint paint) {
         if (getDrawBounds() != null) {
             int radius = Math.min(getDrawBounds().width(), getDrawBounds().height()) / 2;
-            canvas.drawCircle(getDrawBounds().centerX(),
-                    getDrawBounds().centerY(),
-                    radius, paint);
+            canvas.drawCircle(getDrawBounds().centerX(), getDrawBounds().centerY(), radius, paint);
         }
     }
 }
