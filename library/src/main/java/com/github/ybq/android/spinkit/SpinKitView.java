@@ -95,20 +95,16 @@ public class SpinKitView extends ProgressBar {
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        if (hasWindowFocus) {
-            if (mSprite != null && getVisibility() == VISIBLE) {
-                mSprite.start();
-            }
+        if (hasWindowFocus && mSprite != null && getVisibility() == VISIBLE) {
+            mSprite.start();
         }
     }
 
     @Override
     public void onScreenStateChanged(int screenState) {
         super.onScreenStateChanged(screenState);
-        if (screenState == View.SCREEN_STATE_OFF) {
-            if (mSprite != null) {
-                mSprite.stop();
-            }
+        if (screenState == View.SCREEN_STATE_OFF && mSprite != null) {
+            mSprite.stop();
         }
     }
 }
