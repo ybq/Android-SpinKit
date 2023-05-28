@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.github.ybq.android.spinkit.animation.interpolator;
 
 import android.graphics.Path;
@@ -77,8 +76,7 @@ public class PathInterpolatorCompat {
      * @param controlY2 the y coordinate of the second control point of the cubic Bezier
      * @return the {@link Interpolator} representing the cubic Bezier curve
      */
-    public static Interpolator create(float controlX1, float controlY1,
-                                      float controlX2, float controlY2) {
+    public static Interpolator create(float controlX1, float controlY1, float controlX2, float controlY2) {
         if (Build.VERSION.SDK_INT >= 21) {
             return PathInterpolatorCompatApi21.create(controlX1, controlY1, controlX2, controlY2);
         }

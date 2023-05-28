@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.Property;
-
 import com.github.ybq.android.spinkit.animation.AnimationUtils;
 import com.github.ybq.android.spinkit.animation.FloatProperty;
 import com.github.ybq.android.spinkit.animation.IntProperty;
@@ -18,29 +17,44 @@ import com.github.ybq.android.spinkit.animation.IntProperty;
 /**
  * Created by ybq.
  */
-public abstract class Sprite extends Drawable implements
-        ValueAnimator.AnimatorUpdateListener
-        , Animatable
-        , Drawable.Callback {
+public abstract class Sprite extends Drawable implements ValueAnimator.AnimatorUpdateListener, Animatable, Drawable.Callback {
 
     private float scale = 1;
+
     private float scaleX = 1;
+
     private float scaleY = 1;
+
     private float pivotX;
+
     private float pivotY;
+
     private int animationDelay;
+
     private int rotateX;
+
     private int rotateY;
+
     private int translateX;
+
     private int translateY;
+
     private int rotate;
+
     private float translateXPercentage;
+
     private float translateYPercentage;
+
     private ValueAnimator animator;
+
     private int alpha = 255;
+
     private static final Rect ZERO_BOUNDS_RECT = new Rect();
+
     protected Rect drawBounds = ZERO_BOUNDS_RECT;
+
     private Camera mCamera;
+
     private Matrix mMatrix;
 
     public Sprite() {
@@ -177,7 +191,6 @@ public abstract class Sprite extends Drawable implements
 
     @Override
     public void setColorFilter(ColorFilter colorFilter) {
-
     }
 
     public abstract ValueAnimator onCreateAnimation();
@@ -187,12 +200,10 @@ public abstract class Sprite extends Drawable implements
         if (AnimationUtils.isStarted(animator)) {
             return;
         }
-
         animator = obtainAnimation();
         if (animator == null) {
             return;
         }
-
         AnimationUtils.start(animator);
         invalidateSelf();
     }
@@ -258,12 +269,10 @@ public abstract class Sprite extends Drawable implements
 
     @Override
     public void scheduleDrawable(Drawable who, Runnable what, long when) {
-
     }
 
     @Override
     public void unscheduleDrawable(Drawable who, Runnable what) {
-
     }
 
     @Override
@@ -287,7 +296,6 @@ public abstract class Sprite extends Drawable implements
         canvas.translate(tx, ty);
         canvas.scale(getScaleX(), getScaleY(), getPivotX(), getPivotY());
         canvas.rotate(getRotate(), getPivotX(), getPivotY());
-
         if (getRotateX() != 0 || getRotateY() != 0) {
             mCamera.save();
             mCamera.rotateX(getRotateX());
@@ -308,15 +316,11 @@ public abstract class Sprite extends Drawable implements
         int cx = rect.centerX();
         int cy = rect.centerY();
         int r = min / 2;
-        return new Rect(
-                cx - r,
-                cy - r,
-                cx + r,
-                cy + r
-        );
+        return new Rect(cx - r, cy - r, cx + r, cy + r);
     }
 
     public static final Property<Sprite, Integer> ROTATE_X = new IntProperty<Sprite>("rotateX") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setRotateX(value);
@@ -329,6 +333,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Integer> ROTATE = new IntProperty<Sprite>("rotate") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setRotate(value);
@@ -341,6 +346,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Integer> ROTATE_Y = new IntProperty<Sprite>("rotateY") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setRotateY(value);
@@ -354,6 +360,7 @@ public abstract class Sprite extends Drawable implements
 
     @SuppressWarnings("unused")
     public static final Property<Sprite, Integer> TRANSLATE_X = new IntProperty<Sprite>("translateX") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setTranslateX(value);
@@ -367,6 +374,7 @@ public abstract class Sprite extends Drawable implements
 
     @SuppressWarnings("unused")
     public static final Property<Sprite, Integer> TRANSLATE_Y = new IntProperty<Sprite>("translateY") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setTranslateY(value);
@@ -379,6 +387,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Float> TRANSLATE_X_PERCENTAGE = new FloatProperty<Sprite>("translateXPercentage") {
+
         @Override
         public void setValue(Sprite object, float value) {
             object.setTranslateXPercentage(value);
@@ -391,6 +400,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Float> TRANSLATE_Y_PERCENTAGE = new FloatProperty<Sprite>("translateYPercentage") {
+
         @Override
         public void setValue(Sprite object, float value) {
             object.setTranslateYPercentage(value);
@@ -404,6 +414,7 @@ public abstract class Sprite extends Drawable implements
 
     @SuppressWarnings("unused")
     public static final Property<Sprite, Float> SCALE_X = new FloatProperty<Sprite>("scaleX") {
+
         @Override
         public void setValue(Sprite object, float value) {
             object.setScaleX(value);
@@ -416,6 +427,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Float> SCALE_Y = new FloatProperty<Sprite>("scaleY") {
+
         @Override
         public void setValue(Sprite object, float value) {
             object.setScaleY(value);
@@ -428,6 +440,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Float> SCALE = new FloatProperty<Sprite>("scale") {
+
         @Override
         public void setValue(Sprite object, float value) {
             object.setScale(value);
@@ -440,6 +453,7 @@ public abstract class Sprite extends Drawable implements
     };
 
     public static final Property<Sprite, Integer> ALPHA = new IntProperty<Sprite>("alpha") {
+
         @Override
         public void setValue(Sprite object, int value) {
             object.setAlpha(value);
@@ -450,5 +464,4 @@ public abstract class Sprite extends Drawable implements
             return object.getAlpha();
         }
     };
-
 }

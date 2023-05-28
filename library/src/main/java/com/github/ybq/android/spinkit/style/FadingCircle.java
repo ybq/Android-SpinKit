@@ -2,7 +2,6 @@ package com.github.ybq.android.spinkit.style;
 
 import android.animation.ValueAnimator;
 import android.os.Build;
-
 import com.github.ybq.android.spinkit.animation.SpriteAnimatorBuilder;
 import com.github.ybq.android.spinkit.sprite.CircleLayoutContainer;
 import com.github.ybq.android.spinkit.sprite.CircleSprite;
@@ -35,11 +34,8 @@ public class FadingCircle extends CircleLayoutContainer {
 
         @Override
         public ValueAnimator onCreateAnimation() {
-            float fractions[] = new float[]{0f, 0.39f, 0.4f, 1f};
-            return new SpriteAnimatorBuilder(this).
-                    alpha(fractions, 0, 0, 255, 0).
-                    duration(1200).
-                    easeInOut(fractions).build();
+            float[] fractions = new float[] { 0f, 0.39f, 0.4f, 1f };
+            return new SpriteAnimatorBuilder(this).alpha(fractions, 0, 0, 255, 0).duration(1200).easeInOut(fractions).build();
         }
     }
 }

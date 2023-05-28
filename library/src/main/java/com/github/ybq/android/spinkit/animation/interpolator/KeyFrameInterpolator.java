@@ -9,8 +9,8 @@ import android.view.animation.Interpolator;
 public class KeyFrameInterpolator implements Interpolator {
 
     private TimeInterpolator interpolator;
-    private float[] fractions;
 
+    private float[] fractions;
 
     public static KeyFrameInterpolator easeInOut(float... fractions) {
         KeyFrameInterpolator interpolator = new KeyFrameInterpolator(Ease.inOut());
@@ -18,9 +18,7 @@ public class KeyFrameInterpolator implements Interpolator {
         return interpolator;
     }
 
-    public static KeyFrameInterpolator pathInterpolator(float controlX1, float controlY1,
-                                                        float controlX2, float controlY2,
-                                                        float... fractions) {
+    public static KeyFrameInterpolator pathInterpolator(float controlX1, float controlY1, float controlX2, float controlY2, float... fractions) {
         KeyFrameInterpolator interpolator = new KeyFrameInterpolator(PathInterpolatorCompat.create(controlX1, controlY1, controlX2, controlY2));
         interpolator.setFractions(fractions);
         return interpolator;
@@ -44,8 +42,7 @@ public class KeyFrameInterpolator implements Interpolator {
                 float duration = end - start;
                 if (input >= start && input <= end) {
                     input = (input - start) / duration;
-                    return start + (interpolator.getInterpolation(input)
-                            * duration);
+                    return start + (interpolator.getInterpolation(input) * duration);
                 }
             }
         }
